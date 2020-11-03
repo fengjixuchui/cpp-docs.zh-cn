@@ -6,12 +6,12 @@ helpviewer_keywords:
 - header files, C++ Standard Library
 - C++ Standard Library, header files
 ms.assetid: e7bf497a-0f63-48d0-9b54-cb0eef4073c4
-ms.openlocfilehash: dfadfb99e10fdb916b3fb4dc515f89e6f9252fde
-ms.sourcegitcommit: d9c94dcabd94537e304be0261b3263c2071b437b
+ms.openlocfilehash: 7d4978e7de75e5416ba2653a632d713f407d3677
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91352877"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924821"
 ---
 # <a name="c-standard-library-header-files"></a>C + + 标准库头文件
 
@@ -19,9 +19,9 @@ C + + 标准库和扩展的头文件（按类别）。
 
 ## <a name="headers-by-category"></a>按类别列出的标头
 
-::: moniker range=">=vs-2017"
+::: moniker range=">=msvc-150"
 
-| 类别 | 头文件 |
+| 类别 | 标头 |
 | - | - |
 | [算法](./algorithms.md) | [\<algorithm>](algorithm.md), [\<cstdlib>](cstdlib.md), [\<numeric>](numeric.md) |
 | 原子操作 |  [\<atomic>](atomic.md)<sup>11x17</sup> |
@@ -57,9 +57,9 @@ c + + 17 标准版中<sup>的</sup>弃用。
 
 ::: moniker-end
 
-::: moniker range="vs-2015"
+::: moniker range="msvc-140"
 
-|类别|头文件|
+|类别|标头|
 |-|-|
 |[算法](./algorithms.md)|[\<algorithm>](algorithm.md)|
 |C 库包装|[\<cassert>](cassert.md), [\<cctype>](cctype.md), [\<cerrno>](cerrno.md), [\<cfenv>](cfenv.md), [\<cfloat>](cfloat.md), [\<cinttypes>](cinttypes.md), [\<ciso646>](ciso646.md), [\<climits>](climits.md), [\<clocale>](clocale.md), [\<cmath>](cmath.md), [\<csetjmp>](csetjmp.md), [\<csignal>](csignal.md), [\<cstdarg>](cstdarg.md), [\<cstdbool>](cstdbool.md), [\<cstddef>](cstddef.md), [\<cstdint>](cstdint.md), [\<cstdio>](cstdio.md), [\<cstdlib>](cstdlib.md), [\<cstring>](cstring.md), [\<ctgmath>](ctgmath.md), [\<ctime>](ctime.md), [\<cwchar>](cwchar.md), [\<cwctype>](cwctype.md)|
@@ -80,7 +80,7 @@ c + + 17 标准版中<sup>的</sup>弃用。
 
 ::: moniker-end
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [使用 c + + 库标头](using-cpp-library-headers.md)\
 [C++ 标准库](cpp-standard-library-reference.md)

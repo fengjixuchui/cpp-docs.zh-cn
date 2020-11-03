@@ -12,12 +12,12 @@ helpviewer_keywords:
 - -analyze compiler option [C++]
 - analyze compiler option [C++]
 ms.assetid: 81da536a-e030-4bd4-be18-383927597d08
-ms.openlocfilehash: e970872e89132aed52190b8688f2cdaccab5ea6f
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: dcf44f1d282a9dd39205aecb4e75b59a6e8481f9
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91500082"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92919093"
 ---
 # <a name="analyze-code-analysis"></a>`/analyze` (代码分析) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "91500082"
 
 ## <a name="syntax"></a>语法
 
-::: moniker range=">=vs-2017"
+::: moniker range=">=msvc-150"
 
 > **`/analyze`**\
 > **`/analyze-`**\
@@ -42,7 +42,7 @@ ms.locfileid: "91500082"
 > **`/analyze:WX-`**
 
 ::: moniker-end
-::: moniker range="vs-2015"
+::: moniker range="msvc-140"
 
 > **`/analyze`**\
 > **`/analyze-`**\
@@ -68,10 +68,10 @@ ms.locfileid: "91500082"
 详细分析器结果将以 XML 形式写入到文件，该文件具有与源文件相同的基名称和扩展名 *`.pftlog`* 。 **`/analyze:autolog-`** 禁用此日志文件。
 
 **`/analyze:autolog:ext`***扩展*\
-详细分析器结果将以 XML 形式写入到文件，该文件具有与源文件相同的基名称*和扩展插件。*
+详细分析器结果将以 XML 形式写入到文件，该文件具有与源文件相同的基名称 *和扩展插件。*
 
 **`/analyze:log`***filename*\
-详细分析器结果将以 XML 形式写入 *filename*指定的文件。
+详细分析器结果将以 XML 形式写入 *filename* 指定的文件。
 
 **`/analyze:max_paths`***编号*\
 与此选项一起使用的 *number* 参数指定要分析的代码路径的最大数目。 如果未指定此参数，则默认情况下，该数字为256。 较大的值会导致更彻底的检查，但分析可能需要更长的时间。
@@ -82,14 +82,14 @@ ms.locfileid: "91500082"
 **`/analyze:plugin`***插件-dll*\
 在运行代码分析过程中启用指定的 PREfast 插件。
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
 LocalEspC.dll 是在 C261XX 警告范围内实现与并发相关的代码分析检查的插件。 例如， [C26100](../../code-quality/c26100.md)， [C26101](../../code-quality/c26101.md)，...，  [C26167](../../code-quality/c26167.md)。
 
 若要运行 LocalEspC.dll，请使用此编译器选项： **`/analyze:plugin LocalEspC.dll`**
 
 ::: moniker-end
-::: moniker range=">=vs-2019"
+::: moniker range=">=msvc-160"
 
 ConcurrencyCheck.dll 在 C261XX 警告范围内实现与并发相关的代码分析检查。 例如， [C26100](../../code-quality/c26100.md)， [C26101](../../code-quality/c26101.md)，...，  [C26167](../../code-quality/c26167.md)。
 
@@ -114,7 +114,7 @@ set Esp.Extensions=CppCoreCheck.dll
 **`/analyze:quiet`**\
 关闭到控制台或 Visual Studio **输出** 窗口的分析器输出。
 
-::: moniker range=">=vs-2017"
+::: moniker range=">=msvc-150"
 
 **`/analyze:ruleset`***file_path. 规则集*\
 允许您指定要分析的规则集，包括您自己可以创建的自定义规则集。 设置此开关后，规则引擎将更有效，因为它在运行前排除指定规则集的非成员。 否则，引擎将检查所有规则。
@@ -136,7 +136,7 @@ set Esp.Extensions=CppCoreCheck.dll
 ::: moniker-end
 
 **`/analyze:stacksize`***编号*\
-与此选项一起使用的 *number* 参数指定为其生成警告 [C6262](../../code-quality/c6262.md) 的堆栈帧的大小（以字节为单位）。 *Number*之前的空格是可选的。 如果未指定此参数，则默认情况下，堆栈帧大小为16KB。
+与此选项一起使用的 *number* 参数指定为其生成警告 [C6262](../../code-quality/c6262.md) 的堆栈帧的大小（以字节为单位）。 *Number* 之前的空格是可选的。 如果未指定此参数，则默认情况下，堆栈帧大小为16KB。
 
 **`/analyze:WX-`**\
 使用进行编译时，不会将代码分析警告视为错误 **`/WX`** 。 有关详细信息，请参阅[ `/WX` (Warning level) ](compiler-option-warning-level.md)。
@@ -149,7 +149,7 @@ set Esp.Extensions=CppCoreCheck.dll
 
 1. 打开项目的“属性页”  对话框。 有关详细信息，请参阅[在 Visual Studio 中设置 C++ 编译器和生成属性](../working-with-project-properties.md)。
 
-1. 选择**配置属性**  >  **代码分析**  >  **常规**属性页。
+1. 选择 **配置属性**  >  **代码分析**  >  **常规** 属性页。
 
 1. 修改一个或多个 **代码分析** 属性。
 
@@ -160,4 +160,4 @@ set Esp.Extensions=CppCoreCheck.dll
 ## <a name="see-also"></a>请参阅
 
 [MSVC 编译器选项](compiler-options.md)\
-[MSVC 编译器命令行语法](compiler-command-line-syntax.md)
+[MSVC 编译器 Command-Line 语法](compiler-command-line-syntax.md)

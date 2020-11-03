@@ -54,12 +54,12 @@ helpviewer_keywords:
 - _tcsncpy_s function
 - wcsncpy_s_l function
 ms.assetid: a971c800-94d1-4d88-92f3-a2fe236a4546
-ms.openlocfilehash: 1fa2cc24f4ec610e1cc892ddd8d3bf8971ddf687
-ms.sourcegitcommit: 5a069c7360f75b7c1cf9d4550446ec2fa2eb2293
+ms.openlocfilehash: 08921ff44d2d69ab77eb210b2123016ea61c4f67
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82919298"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008278"
 ---
 # <a name="strncpy_s-_strncpy_s_l-wcsncpy_s-_wcsncpy_s_l-_mbsncpy_s-_mbsncpy_s_l"></a>strncpy_s、_strncpy_s_l、wcsncpy_s、_wcsncpy_s_l、_mbsncpy_s、_mbsncpy_s_l
 
@@ -151,7 +151,7 @@ errno_t _mbsncpy_s_l(
 ); // C++ only
 ```
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 *strDest*<br/>
 目标字符串。
@@ -170,20 +170,20 @@ errno_t _mbsncpy_s_l(
 
 ## <a name="return-value"></a>返回值
 
-如果成功，则为零; 如果发生截断，则为**STRUNCATE** ; 否则为错误代码。
+如果成功，则为零; 如果发生截断，则为 **STRUNCATE** ; 否则为错误代码。
 
 ### <a name="error-conditions"></a>错误条件
 
 |*strDest*|*numberOfElements*|*strSource*|返回值|*StrDest*的内容|
 |---------------|------------------------|-----------------|------------------|---------------------------|
-|**Null**|any|any|**EINVAL**|未修改|
-|any|any|**Null**|**EINVAL**|*strDest*[0] 设置为0|
+|**NULL**|any|any|**EINVAL**|未修改|
+|any|any|**NULL**|**EINVAL**|*strDest*[0] 设置为0|
 |any|0|any|**EINVAL**|未修改|
 |not **NULL**|过小|any|**ERANGE**|*strDest*[0] 设置为0|
 
 ## <a name="remarks"></a>备注
 
-这些函数尝试将*strSource*的前*D*个字符复制到*strDest*，其中*D*是*count*和*strSource*的长度。 如果这些*D*字符将放在*strDest* （其大小被赋予*numberOfElements*）中，并且仍为 null 终止符留出空间，则会复制这些字符，并追加一个终止 null。否则， *strDest*[0] 设置为 null 字符，并调用无效参数处理程序，如[参数验证](../../c-runtime-library/parameter-validation.md)中所述。
+这些函数尝试将*strSource*的前*D*个字符复制到*strDest*，其中*D*是*count*和*strSource*的长度。 如果这些 *D* 字符将放在 *strDest* (其大小被指定为 *numberOfElements*) 并且仍为 null 终止符留下空间，则会复制这些字符，并追加一个终止 null。否则， *strDest*[0] 设置为 null 字符，并调用无效参数处理程序，如 [参数验证](../../c-runtime-library/parameter-validation.md)中所述。
 
 在上段描述的内容中有一个例外。 如果*count*是 **_TRUNCATE**的，则在仍留出用于终止 null 的空间（始终追加）的情况下，将复制*StrDest*中可容纳的*strSource*数量。
 
@@ -194,9 +194,9 @@ char dst[5];
 strncpy_s(dst, 5, "a long string", 5);
 ```
 
-表示我们要求**strncpy_s**将五个字符复制到缓冲区5个字节长;这将不会为 null 终止符留出空间，因此**strncpy_s**将字符串输出为零，并调用无效的参数处理程序。
+表示我们要求 **strncpy_s** 将五个字符复制到缓冲区5个字节长;这将不会为 null 终止符留出空间，因此 **strncpy_s** 将字符串输出为零，并调用无效的参数处理程序。
 
-如果需要截断行为，请使用 **_TRUNCATE**或（*大小*-1）：
+如果需要截断行为，请使用 **_TRUNCATE** 或 (*大小* -1) ：
 
 ```C
 strncpy_s(dst, 5, "a long string", _TRUNCATE);
@@ -205,11 +205,11 @@ strncpy_s(dst, 5, "a long string", 4);
 
 请注意，与**strncpy**不同的是，如果*count*大于*STRSOURCE*的长度，则不会将目标字符串填充到长度为零*的空字符。*
 
-如果源和目标字符串重叠，则**strncpy_s**的行为不确定。
+如果源和目标字符串重叠，则 **strncpy_s** 的行为不确定。
 
-如果*strDest*或*strSource*为**NULL**，或者*numberOfElements*为0，则调用无效的参数处理程序。 如果允许执行继续，则该函数将返回**EINVAL** ，并将**Errno**设置为**EINVAL**。
+如果 *strDest* 或 *strSource* 为 **NULL**，或者 *numberOfElements* 为0，则调用无效的参数处理程序。 如果允许执行继续，则该函数将返回 **EINVAL** ，并将 **Errno** 设置为 **EINVAL**。
 
-**wcsncpy_s**和 **_mbsncpy_s**是**strncpy_s**的宽字符和多字节字符版本。 **Wcsncpy_s**和**mbsncpy_s**的参数和返回值将相应变化。 否则这六个函数具有相同行为。
+**wcsncpy_s** 和 **_mbsncpy_s** 是 **strncpy_s**的宽字符和多字节字符版本。 **Wcsncpy_s**和**mbsncpy_s**的参数和返回值将相应变化。 否则这六个函数具有相同行为。
 
 输出值受区域设置的 LC_CTYPE 类别设置影响；有关详细信息，请参阅 [setlocale](setlocale-wsetlocale.md)****。 这些不带 **_l** 后缀的函数版本使用此区域设置相关的行为的当前区域设置；带有 **_l** 后缀的版本相同，只不过它们使用传递的区域设置参数。 有关详细信息，请参阅 [Locale](../../c-runtime-library/locale.md)。
 
@@ -217,7 +217,7 @@ strncpy_s(dst, 5, "a long string", 4);
 
 这些函数的调试库版本首先用0xFE 填充缓冲区。 若要禁用此行为，请使用 [_CrtSetDebugFillThreshold](crtsetdebugfillthreshold.md)。
 
-默认情况下，此函数的全局状态的作用域限定为应用程序。 若要更改此项，请参阅[CRT 中的全局状态](../global-state.md)。
+默认情况下，此函数的全局状态的作用域限定为应用程序。 若要更改此项，请参阅 [CRT 中的全局状态](../global-state.md)。
 
 ### <a name="generic-text-routine-mappings"></a>一般文本例程映射
 
@@ -227,11 +227,11 @@ strncpy_s(dst, 5, "a long string", 4);
 |**_tcsncpy_s_l**|**_strncpy_s_l**|**_mbsnbcpy_s_l**|**_wcsncpy_s_l**|
 
 > [!NOTE]
-> **_strncpy_s_l**、 **_wcsncpy_s_l**和 **_mbsncpy_s_l**没有区域设置依赖关系，只是为 **_tcsncpy_s_l**提供，不应直接调用。
+> **_strncpy_s_l**、 **_wcsncpy_s_l** 和 **_mbsncpy_s_l** 没有区域设置依赖关系，只是为 **_tcsncpy_s_l** 提供，不应直接调用。
 
 ## <a name="requirements"></a>要求
 
-|例程|必需的标头|
+|例程所返回的值|必需的标头|
 |-------------|---------------------|
 |**strncpy_s**， **_strncpy_s_l**|\<string.h>|
 |**wcsncpy_s**， **_wcsncpy_s_l**|\<string.h> 或 \<wchar.h>|
@@ -239,7 +239,7 @@ strncpy_s(dst, 5, "a long string", 4);
 
 有关其他兼容性信息，请参阅[兼容性](../../c-runtime-library/compatibility.md)。
 
-## <a name="example"></a>示例
+## <a name="example-copy-chars-to-a-buffer"></a>示例：将字符复制到缓冲区
 
 ```cpp
 // crt_strncpy_s_1.cpp
@@ -366,7 +366,7 @@ Invalid parameter handler invoked: (L"Buffer is too small" && 0)
     new contents of dest: ''
 ```
 
-## <a name="example"></a>示例
+## <a name="example-strncpy-and-strncpy_s"></a>示例： strncpy 和 strncpy_s
 
 ```C
 // crt_strncpy_s_2.c
@@ -410,11 +410,11 @@ After strncpy_s (with null-termination):
    'mice'
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [字符串操作](../../c-runtime-library/string-manipulation-crt.md)<br/>
-[本地](../../c-runtime-library/locale.md)<br/>
-[多字节字符序列的解释](../../c-runtime-library/interpretation-of-multibyte-character-sequences.md)<br/>
+[区域设置](../../c-runtime-library/locale.md)<br/>
+[Multibyte-Character 序列的解释](../../c-runtime-library/interpretation-of-multibyte-character-sequences.md)<br/>
 [_mbsnbcpy、_mbsnbcpy_l](mbsnbcpy-mbsnbcpy-l.md)<br/>
 [strcat_s、wcscat_s、_mbscat_s](strcat-s-wcscat-s-mbscat-s.md)<br/>
 [strcmp、wcscmp、_mbscmp](strcmp-wcscmp-mbscmp.md)<br/>

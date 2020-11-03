@@ -6,30 +6,30 @@ helpviewer_keywords:
 - MFC [C++], hosting a Windows Forms Control
 - Windows Forms [C++], MFC support
 ms.assetid: b2957370-cf1f-4779-94ac-228cd393686c
-ms.openlocfilehash: 31629a4db2559112ba49f5c069b08de7abdfc2db
-ms.sourcegitcommit: 7a6116e48c3c11b97371b8ae4ecc23adce1f092d
+ms.openlocfilehash: a0759eba1c55e72f2c0a99964b0b2d254df82a25
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81754358"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008315"
 ---
 # <a name="how-to-do-ddxddv-data-binding-with-windows-forms"></a>如何：使用 Windows 窗体执行 DDX/DDV 数据绑定
 
-[DDX_ManagedControl](../mfc/reference/standard-dialog-data-exchange-routines.md#ddx_managedcontrol)调用[CWinForms 控制：：创建托管控制](../mfc/reference/cwinformscontrol-class.md#createmanagedcontrol)以创建与资源控制 ID 匹配的控件。 如果用于`DDX_ManagedControl`控件（在`CWinFormsControl`向导生成的代码中），则不应显式调用`CreateManagedControl`同一控件。
+[DDX_ManagedControl](../mfc/reference/standard-dialog-data-exchange-routines.md#ddx_managedcontrol) 调用 [CWinFormsControl：： CreateManagedControl](../mfc/reference/cwinformscontrol-class.md#createmanagedcontrol) 来创建一个与资源控件 ID 相匹配的控件。 如果用于 `DDX_ManagedControl` `CWinFormsControl` 控件 (在向导生成的代码) 中，则不应 `CreateManagedControl` 为同一控件显式调用。
 
-在`DDX_ManagedControl` [CWnd：:DoDataExchange 中](../mfc/reference/cwnd-class.md#dodataexchange)调用，从资源 ID 创建控件。 对于数据交换，您无需将 DDX/DDV 函数与 Windows 窗体控件一起使用。 相反，您可以将代码放在对话框（或视图）类`DoDataExchange`的方法中访问托管控件的属性，如以下示例所示。
+`DDX_ManagedControl`在[CWnd：:D odataexchange](../mfc/reference/cwnd-class.md#dodataexchange)中调用，以从资源 id 创建控件。 对于数据交换，无需将 DDX/DDV 函数用于 Windows 窗体控件。 相反，你可以在对话框 (或查看) 类的方法中放置代码来访问托管控件的属性 `DoDataExchange` ，如下面的示例中所示。
 
-下面的示例演示如何将本机C++字符串绑定到 .NET 用户控件。
+下面的示例演示如何将本机 c + + 字符串绑定到 .NET 用户控件。
 
-## <a name="example"></a>示例
+## <a name="example-ddxddv-data-binding"></a>示例： DDX/DDV 数据绑定
 
-下面是 MFC 字符串的 DDX/DDV 数据绑定的示例，`m_str`该字符串具有 .NET 用户控件的用户定义`NameText`属性。
+下面是一个 `m_str` 使用 .net 用户控件的用户定义属性的 MFC 字符串的 DDX/DDV 数据绑定的示例 `NameText` 。
 
-当[CDialog：：OnInitDialog](../mfc/reference/cdialog-class.md#oninitdialog)首次调用`CMyDlg::DoDataExchange`时创建该控件，因此引用`m_UserControl`的任何代码都必须在`DDX_ManagedControl`调用后出现。
+当 [CDialog：： OnInitDialog](../mfc/reference/cdialog-class.md#oninitdialog) 第一次调用时，将创建该控件 `CMyDlg::DoDataExchange` ，因此，引用的任何代码都 `m_UserControl` 必须在 `DDX_ManagedControl` 调用之后。
 
-您可以在"[如何：在对话框中创建用户控制和主机"](../dotnet/how-to-create-the-user-control-and-host-in-a-dialog-box.md)中创建的 MFC01 应用程序中实现此代码。
+你可以在 " [如何：创建用户控件并在一个对话框中承载](../dotnet/how-to-create-the-user-control-and-host-in-a-dialog-box.md)" 对话框中创建的 MFC01 应用程序中实现此代码。
 
-在 CMFC01Dlg 的声明中放入以下代码：
+将以下代码放入 CMFC01Dlg 的声明中：
 
 ```
 class CMFC01Dlg : public CDialog
@@ -39,9 +39,9 @@ class CMFC01Dlg : public CDialog
 };
 ```
 
-## <a name="example"></a>示例
+## <a name="example-implement-dodataexchange"></a>示例：实现 DoDataExchange ( # A1
 
-在 CMFC01Dlg 的实现中放入以下代码：
+在 CMFC01Dlg 的实现中添加以下代码：
 
 ```cpp
 void CMFC01Dlg::DoDataExchange(CDataExchange* pDX)
@@ -58,11 +58,11 @@ void CMFC01Dlg::DoDataExchange(CDataExchange* pDX)
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-add-handler-method"></a>示例：添加处理程序方法
 
-现在，我们将添加处理程序方法，单击"确定"按钮。 单击"**资源视图"** 选项卡。在"资源视图"中，双`IDD_MFC01_DIALOG`击 。 对话框资源将显示在资源编辑器中。 然后双击"确定"按钮。
+现在，我们将为单击 "确定" 按钮添加处理程序方法。 单击 " **资源视图** " 选项卡。在资源视图中，双击 `IDD_MFC01_DIALOG` 。 对话框资源将出现在 "资源编辑器" 中。 然后双击 "确定" 按钮。
 
-定义处理程序，如下所示。
+按如下所示定义处理程序。
 
 ```cpp
 void CMFC01Dlg::OnBnClickedOk()
@@ -72,9 +72,9 @@ void CMFC01Dlg::OnBnClickedOk()
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-set-the-textbox-text"></a>示例：设置文本框文本
 
-并添加以下行的BOOL CMFC01Dlg实现：：onInitDialog（）。
+并将以下行添加到 BOOL CMFC01Dlg：： OnInitDialog 的实现 ( # A1。
 
 ```
 m_MyControl.GetControl()->textBox1->Text = "hello";
@@ -84,6 +84,6 @@ m_MyControl.GetControl()->textBox1->Text = "hello";
 
 ## <a name="see-also"></a>请参阅
 
-[CWinForms控制类](../mfc/reference/cwinformscontrol-class.md)<br/>
+[CWinFormsControl 类](../mfc/reference/cwinformscontrol-class.md)<br/>
 [DDX_ManagedControl](../mfc/reference/standard-dialog-data-exchange-routines.md#ddx_managedcontrol)<br/>
-[CWnd：:DoDataExchange](../mfc/reference/cwnd-class.md#dodataexchange)
+[CWnd：:D oDataExchange](../mfc/reference/cwnd-class.md#dodataexchange)

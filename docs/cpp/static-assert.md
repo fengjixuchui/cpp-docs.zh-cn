@@ -7,12 +7,12 @@ helpviewer_keywords:
 - assertions [C++], static_assert
 - static_assert
 ms.assetid: 28dd3668-e78c-4de8-ba68-552084743426
-ms.openlocfilehash: b30af5fcf5d4f58143e657d84e743ef09a34e268
-ms.sourcegitcommit: 72161bcd21d1ad9cc3f12261aa84a5b026884afa
+ms.openlocfilehash: bf796b853d21d33d97e25c05101b7486e1eb112f
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90742965"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008856"
 ---
 # <a name="static_assert"></a>static_assert
 
@@ -26,7 +26,7 @@ static_assert( constant-expression, string-literal );
 static_assert( constant-expression ); // C++17 (Visual Studio 2017 and later)
 ```
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 *常量表达式*\
 可以转换为布尔值的整型常量表达式。 如果计算出的表达式为零 (false) ，则显示 *字符串* 参数，且编译失败并出现错误。 如果表达式为非零 () ，则 **`static_assert`** 声明不起作用。
@@ -44,21 +44,21 @@ static_assert( constant-expression ); // C++17 (Visual Studio 2017 and later)
 
 可以 **`static_assert`** 在命名空间、类或块范围内使用关键字。  (**`static_assert`** 关键字在技术上是声明，尽管它不会将新名称引入到程序中，因为它可以在命名空间范围内使用。 ) 
 
-## <a name="description-of-static_assert-with-namespace-scope"></a>命名空间范围 static_assert 的说明
+## <a name="description-of-static_assert-with-namespace-scope"></a>`static_assert`带有命名空间范围的说明
 
 在下面的示例中， **`static_assert`** 声明具有命名空间范围。 由于编译器知道类型 `void *` 的大小，因此可以立即计算表达式。
 
-## <a name="example-of-static_assert-with-namespace-scope"></a>命名空间范围 static_assert 的示例
+## <a name="example-static_assert-with-namespace-scope"></a>示例： `static_assert` 命名空间范围
 
 ```cpp
 static_assert(sizeof(void *) == 4, "64-bit code generation is not supported.");
 ```
 
-## <a name="description-of-static_assert-with-class-scope"></a>具有类范围的 static_assert 的说明
+## <a name="description-of-static_assert-with-class-scope"></a>`static_assert`具有类范围的说明
 
 在下面的示例中， **`static_assert`** 声明具有类范围。 **`static_assert`** 验证模板参数是否为*纯旧数据* (POD) 类型。 在声明 **`static_assert`** 声明时，编译器将检查声明，但在中实例化类模板之前，不会计算 *常数表达式* 参数 `basic_string` `main()` 。
 
-## <a name="example-of-static_assert-with-class-scope"></a>具有类范围的 static_assert 的示例
+## <a name="example-static_assert-with-class-scope"></a>示例： `static_assert` 类作用域
 
 ```cpp
 #include <type_traits>
@@ -83,11 +83,11 @@ int main()
 }
 ```
 
-## <a name="description"></a>描述
+## <a name="description-of-static_assert-with-block-scope"></a>`static_assert`具有块范围的说明
 
 在下面的示例中， **`static_assert`** 声明具有块范围。 **`static_assert`** 验证 VMPage 结构的大小是否等于系统的虚拟内存 pagesize。
 
-## <a name="example"></a>示例
+## <a name="example-static_assert-at-block-scope"></a>示例： `static_assert` 在块范围
 
 ```cpp
 #include <sys/param.h> // defines PAGESIZE

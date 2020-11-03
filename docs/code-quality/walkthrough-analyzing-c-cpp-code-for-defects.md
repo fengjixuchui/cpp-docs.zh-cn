@@ -8,12 +8,12 @@ helpviewer_keywords:
 - code analysis, walkthroughs
 - code, analyzing C/C++
 - code analysis tool, walkthroughs
-ms.openlocfilehash: 65da18f5f6d1972276f1cb8e306e82314282e40a
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: bb81ca376651c17c760ee776510303efaa13fd9a
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87227707"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924778"
 ---
 # <a name="walkthrough-analyzing-cc-code-for-defects"></a>演练：分析 C/c + + 代码的缺陷
 
@@ -26,7 +26,7 @@ ms.locfileid: "87227707"
 - 将警告视为错误。
 - 批注源代码以改进代码缺陷分析。
 
-## <a name="prerequisites"></a>必备条件
+## <a name="prerequisites"></a>先决条件
 
 - [CppDemo 示例](../code-quality/demo-sample.md)的副本。
 - 基本了解 C/c + +。
@@ -35,68 +35,68 @@ ms.locfileid: "87227707"
 
 ### <a name="to-run-code-defect-analysis-on-native-code"></a>在本机代码上运行代码缺陷分析
 
-::: moniker range=">=vs-2019"
+::: moniker range=">=msvc-160"
 
 1. 在 Visual Studio 中打开 CppDemo 解决方案。
 
-     CppDemo 解决方案现在**解决方案资源管理器**中填充。
+     CppDemo 解决方案现在 **解决方案资源管理器** 中填充。
 
-1. 在 "**生成**" 菜单上，选择 "**重新生成解决方案**"。
+1. 在 " **生成** " 菜单上，选择 " **重新生成解决方案** "。
 
      解决方案生成时不会出现任何错误或警告。
 
-1. 在**解决方案资源管理器**中，选择 CodeDefects 项目。
+1. 在 **解决方案资源管理器** 中，选择 CodeDefects 项目。
 
 1. 在 **“项目”** 菜单上，选择 **“属性”** 。
 
-     随即显示 " **CodeDefects 属性页**" 对话框。
+     随即显示 " **CodeDefects 属性页** " 对话框。
 
-1. 选择 "**代码分析**" 属性页。
+1. 选择 " **代码分析** " 属性页。
 
-1. 将 "**对生成启用代码分析**" 属性更改为 **"是"**。 选择“确定”以保存更改  。
+1. 将 " **对生成启用代码分析** " 属性更改为 **"是"** 。 选择“确定”以保存更改  。
 
 1. 重新生成 CodeDefects 项目。
 
-     "**错误列表**" 窗口中将显示代码分析警告。
+     " **错误列表** " 窗口中将显示代码分析警告。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
 1. 在 Visual Studio 中打开 CppDemo 解决方案。
 
-     CppDemo 解决方案现在**解决方案资源管理器**中填充。
+     CppDemo 解决方案现在 **解决方案资源管理器** 中填充。
 
-1. 在 "**生成**" 菜单上，选择 "**重新生成解决方案**"。
+1. 在 " **生成** " 菜单上，选择 " **重新生成解决方案** "。
 
      解决方案生成时不会出现任何错误或警告。
 
      > [!NOTE]
      > 在 Visual Studio 2017 中，IntelliSense 引擎可能会出现虚假警告 `E1097 unknown attribute "no_init_all"` 。 可以放心地忽略此警告。
 
-1. 在**解决方案资源管理器**中，选择 CodeDefects 项目。
+1. 在 **解决方案资源管理器** 中，选择 CodeDefects 项目。
 
 1. 在 **“项目”** 菜单上，选择 **“属性”** 。
 
-     随即显示 " **CodeDefects 属性页**" 对话框。
+     随即显示 " **CodeDefects 属性页** " 对话框。
 
-1. 选择 "**代码分析**" 属性页。
+1. 选择 " **代码分析** " 属性页。
 
-1. 选中 "**生成时启用代码分析"** 复选框。 选择“确定”以保存更改  。
+1. 选中 " **生成时启用代码分析"** 复选框。 选择“确定”以保存更改  。
 
 1. 重新生成 CodeDefects 项目。
 
-     "**错误列表**" 窗口中将显示代码分析警告。
+     " **错误列表** " 窗口中将显示代码分析警告。
 
 ::: moniker-end
 
 ### <a name="to-analyze-code-defect-warnings"></a>分析代码缺陷警告
 
-1. 在 "**视图**" 菜单上，选择 "**错误列表**"。
+1. 在 " **视图** " 菜单上，选择 " **错误列表** "。
 
-     此菜单项可能不可见。 这取决于你在 Visual Studio 中选择的开发人员配置文件。 您可能必须指向 "**视图**" 菜单上的 "**其他窗口**"，然后选择 "**错误列表**"。
+     此菜单项可能不可见。 这取决于你在 Visual Studio 中选择的开发人员配置文件。 您可能必须指向 " **视图** " 菜单上的 " **其他窗口** "，然后选择 " **错误列表** "。
 
-1. 在 "**错误列表**" 窗口中，双击以下警告：
+1. 在 " **错误列表** " 窗口中，双击以下警告：
 
      C6230：语义不同类型之间的隐式强制转换：在 Boolean 上下文中使用 HRESULT。
 
@@ -108,7 +108,7 @@ ms.locfileid: "87227707"
    if (SUCCEEDED(ReadUserAccount()))
    ```
 
-1. 在**错误列表**中，双击以下警告：
+1. 在 **错误列表** 中，双击以下警告：
 
      C6282：运算符不正确：在 Boolean 上下文中分配常量。 请考虑改用 "= ="。
 
@@ -118,7 +118,7 @@ ms.locfileid: "87227707"
    if ((len == ACCOUNT_DOMAIN_LEN) || (g_userAccount[len] != L'\\'))
    ```
 
-1. 在**错误列表**中，通过 `i` 将和初始化为0来更正剩余的 C6001 警告 `j` 。
+1. 在 **错误列表** 中，通过 `i` 将和初始化为0来更正剩余的 C6001 警告 `j` 。
 
 1. 重新生成 CodeDefects 项目。
 
@@ -128,31 +128,31 @@ ms.locfileid: "87227707"
 
 ### <a name="to-enable-the-source-code-annotation-warnings-in-annotationc"></a>在 annotation 中启用源代码批注警告
 
-::: moniker range=">=vs-2019"
+::: moniker range=">=msvc-160"
 
 1. 在解决方案资源管理器中，选择 "批注" 项目。
 
 1. 在 **“项目”** 菜单上，选择 **“属性”** 。
 
-     将显示 "**批注属性页**" 对话框。
+     将显示 " **批注属性页** " 对话框。
 
-1. 选择 "**代码分析**" 属性页。
+1. 选择 " **代码分析** " 属性页。
 
-1. 将 "**对生成启用代码分析**" 属性更改为 **"是"**。 选择“确定”以保存更改  。
+1. 将 " **对生成启用代码分析** " 属性更改为 **"是"** 。 选择“确定”以保存更改  。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
 1. 在解决方案资源管理器中，选择 "批注" 项目。
 
 1. 在 **“项目”** 菜单上，选择 **“属性”** 。
 
-     将显示 "**批注属性页**" 对话框。
+     将显示 " **批注属性页** " 对话框。
 
-1. 选择 "**代码分析**" 属性页。
+1. 选择 " **代码分析** " 属性页。
 
-1. 选中 "**生成时启用代码分析"** 复选框。 选择“确定”以保存更改  。
+1. 选中 " **生成时启用代码分析"** 复选框。 选择“确定”以保存更改  。
 
 ::: moniker-end
 
@@ -160,9 +160,9 @@ ms.locfileid: "87227707"
 
 1. 重新生成批注项目。
 
-1. 在 "**生成**" 菜单上，选择 **"对批注运行代码分析**"。
+1. 在 " **生成** " 菜单上，选择 **"对批注运行代码分析** "。
 
-1. 在**错误列表**中，双击以下警告：
+1. 在 **错误列表** 中，双击以下警告：
 
      C6011：取消对 NULL 指针 "newNode" 的引用。
 
@@ -196,9 +196,9 @@ ms.locfileid: "87227707"
    _Ret_maybenull_ LinkedList* AddTail(_Maybenull_ LinkedList* node, int value)
    ```
 
-1. 在“生成”菜单上，选择“对解决方案运行代码分析”。********
+1. 在“生成”菜单上，选择“对解决方案运行代码分析”。 
 
-1. 在**错误列表**中，双击以下警告：
+1. 在 **错误列表** 中，双击以下警告：
 
      C6011：取消引用 NULL 指针 "node"。
 
@@ -213,11 +213,11 @@ ms.locfileid: "87227707"
    }
    ```
 
-1. 在“生成”菜单上，选择“对解决方案运行代码分析”。********
+1. 在“生成”菜单上，选择“对解决方案运行代码分析”。 
 
      项目现在生成时没有任何警告或错误。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [演练：对托管代码进行代码缺陷分析](/visualstudio/code-quality/walkthrough-analyzing-managed-code-for-code-defects)\
 [C/C++ 代码分析](../code-quality/code-analysis-for-c-cpp-overview.md)

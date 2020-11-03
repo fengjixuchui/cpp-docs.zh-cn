@@ -160,12 +160,12 @@ helpviewer_keywords:
 - CRT_REPORT_HOOK type
 - _finddata_t type
 ms.assetid: 23312dd2-4a6a-4d70-9b48-2a5d0d8c9f28
-ms.openlocfilehash: bf90adbdbc739a2dd26d8e59ab38e56aef3bd312
-ms.sourcegitcommit: d9c94dcabd94537e304be0261b3263c2071b437b
+ms.openlocfilehash: 376c29371fb9213ed46435b41bea1666058c7b4e
+ms.sourcegitcommit: 30792632548d1c71894f9fecbe2f554294b86020
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91352929"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765317"
 ---
 # <a name="standard-types"></a>标准类型
 
@@ -199,7 +199,7 @@ Microsoft 运行库定义下列标准类型和 typedef。
 |`_CRT_REPORT_HOOK`,<br /><br /> `_CRT_REPORT_HOOKW`,<br /><br /> `_CRT_REPORT_HOOKW_M`|将在 [_CrtDbgReport](../c-runtime-library/reference/crtdbgreport-crtdbgreportw.md) 中调用的回调函数的类型定义。<br /><br /> 此函数的参数包括：报告类型、输出消息和回调函数的返回值。|CRTDBG.H|
 |`dev_t`、`_dev_t` short 或 unsigned integer|表示设备句柄。|SYS\TYPES.H|
 |`_diskfree_t` 结构|包含有关磁盘驱动器的信息。 由 [_getdiskfree](../c-runtime-library/reference/getdiskfree.md)**** 使用。|DOS.H 和 DIRECT.H|
-|`div_t`、`ldiv_t` 和 `lldiv_t` 结构|存储由 [div](reference/div.md)、[ldiv](../c-runtime-library/reference/ldiv-lldiv.md) 和 [lldiv](../c-runtime-library/reference/ldiv-lldiv.md) 分别返回的值。|STDLIB.H|
+|`div_t`、`ldiv_t` 和 `lldiv_t` 结构|存储由 [div](reference/div.md)、[ldiv](./reference/div.md) 和 [lldiv](./reference/div.md) 分别返回的值。|STDLIB.H|
 |`errno_t` integer|用于处理 `errno` 的错误代码的函数返回类型或参数。|STDDEF.H、<br /><br /> CRTDEFS.H|
 |`_exception` 结构|存储 [_matherr](../c-runtime-library/reference/matherr.md) 的错误信息。|MATH.H|
 |`_EXCEPTION_POINTERS`|包含一个异常记录。 有关详细信息，请参阅 [EXCEPTION_POINTERS](/windows/win32/api/winnt/ns-winnt-exception_pointers)。|FPIEEE.H|
@@ -253,6 +253,6 @@ Microsoft 运行库定义下列标准类型和 typedef。
 |`wctype_t` integer|可表示任何语言字符集的所有字符。|WCHAR.H、<br /><br /> CRTDEFS.H|
 |`wint_t` integer|可保留任何宽字符或宽文件尾值的数据对象的类型。|WCHAR.H、<br /><br /> CRTDEFS.H|
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [C 运行时库参考](../c-runtime-library/c-run-time-library-reference.md)

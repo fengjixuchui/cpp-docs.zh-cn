@@ -1,23 +1,23 @@
 ---
-title: literal（C++/CLI 和 C++/CX）
-ms.date: 10/12/2018
+title: " (c + +/CLI) 文本"
+description: Literal 关键字是适用于编译时常量的 Microsoft c + +/CLI 上下文相关的关键字。
+ms.date: 10/20/2020
 ms.topic: reference
 f1_keywords:
 - literal
 - literal_cpp
 helpviewer_keywords:
 - literal keyword [C++]
-ms.assetid: 6b1a1f36-2e1d-4a23-8eb6-172f4f3c477f
-ms.openlocfilehash: 2687352c02bed609ffaa60ee8b1df40b51126d21
-ms.sourcegitcommit: c1fd917a8c06c6504f66f66315ff352d0c046700
+ms.openlocfilehash: 2d71a535252ba51f89407670b474a34b407eaffc
+ms.sourcegitcommit: 59b7c18703d1ffd66827db0e2eeece490d3d8789
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90686725"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92337208"
 ---
-# <a name="literal-ccli-and-ccx"></a>literal（C++/CLI 和 C++/CX）
+# <a name="literal-ccli"></a>`literal` (C + +/CLI) 
 
-在 /clr**** 编译中标记为 literal**** 的变量（数据成员）相当于本机 static const**** 变量。
+在编译中标记为的变量 () 数据成员 **`literal`** **`/clr`** 是编译时常量。 它是 c # 变量的本机等效项 [`const`](/dotnet/csharp/language-reference/keywords/const) 。
 
 ## <a name="all-platforms"></a>所有平台
 
@@ -31,27 +31,21 @@ ms.locfileid: "90686725"
 
 (此语言功能没有只适用于 Windows 运行时的备注。）
 
-### <a name="requirements"></a>要求
-
-编译器选项：`/ZW`
-
 ## <a name="common-language-runtime"></a>公共语言运行时
 
 ## <a name="remarks"></a>备注
 
-标记为 literal**** 的数据成员必须在声明时初始化，值必须为常量整型、枚举或字符串类型。 从初始化表达式类型转换为静态常量数据成员类型时，不能使用用户定义的转换。
+标记为的数据成员 **`literal`** 必须在声明时进行初始化。 值必须为常量整型、枚举或字符串类型。 从初始化表达式的类型到数据成员的类型的转换 **`literal`** 不能要求用户定义的转换。
 
-没有在运行时为文本字段分配内存；编译器只将其值插入该类的元数据中。
+在运行时没有为该 **`literal`** 字段分配内存; 编译器仅将其值插入到类的元数据中。 **`literal`** 该值被视为编译时常量。 标准 c + + 中最接近的等效项是 **`constexpr`** ，但数据成员不能是 **`constexpr`** c + +/cli
 
-元数据中标记为 static const**** 的变量不可用于其他编译器。
+标记为的变量 **`literal`** 与标记的变量不同 **`static const`** 。 **`static const`** 数据成员在元数据中无法用于其他编译器。 有关详细信息，请参阅 [`static`](../cpp/storage-classes-cpp.md) 和 [`const`](../cpp/const-cpp.md)。
 
-有关详细信息，请参阅 [Static](../cpp/storage-classes-cpp.md) 和 [const](../cpp/const-cpp.md)。
-
-literal**** 是上下文相关关键字。 有关详细信息，请参阅[上下文相关关键字](context-sensitive-keywords-cpp-component-extensions.md)。
+**`literal`** 是上下文相关的关键字。 有关详细信息，请参阅 [上下文相关的关键字](context-sensitive-keywords-cpp-component-extensions.md)。
 
 ## <a name="examples"></a>示例
 
-此示例说明 **文本** 变量隐含 **`static`** 。
+此示例显示 **`literal`** 变量表示 **`static`** 。
 
 ```cpp
 // mcppv2_literal.cpp
@@ -65,7 +59,7 @@ int main() {
 }
 ```
 
-下面的示例演示了对元数据的文本影响：
+下面的示例演示了 **`literal`** 在元数据中的效果：
 
 ```cpp
 // mcppv2_literal2.cpp
@@ -78,15 +72,15 @@ public ref struct A {
 
 注意 `sc` 和 `lit` 在元数据上的区别：`modopt` 指令应用于 `sc`，表示其他编译器会将其忽略。
 
-```
-.field public static int32 modopt([mscorlib]System.Runtime.CompilerServices.IsConst) sc = int32(0x0000000A)
-```
-
-```
-.field public static literal int32 lit = int32(0x0000000A)
+```MSIL
+.field public static int32 modopt([mscorlib]System.Runtime.CompilerServices.IsConst) sc = int32(0x00000001)
 ```
 
-下面的示例是用 C# 编写，它引用上一示例中创建的元数据，并展示了 literal**** 和 static const**** 变量的效果：
+```MSIL
+.field public static literal int32 lit = int32(0x00000000)
+```
+
+下面的示例（用 c # 编写）引用前面的示例中创建的元数据，并显示 **`literal`** 和 **`static const`** 变量的效果：
 
 ```csharp
 // mcppv2_literal3.cs
@@ -121,6 +115,6 @@ class B {
 
 编译器选项：`/clr`
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 [适用于 .NET 和 UWP 的组件扩展](component-extensions-for-runtime-platforms.md)

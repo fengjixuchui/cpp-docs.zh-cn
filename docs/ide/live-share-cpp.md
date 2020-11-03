@@ -11,7 +11,7 @@ ms.locfileid: "90684516"
 ---
 # <a name="collaborate-using-live-share-for-c"></a>使用用于 C++ 的 Live Share 协作
 
-在 Visual Studio 2019 和 Visual Studio Code 中，可以使用 Live Share 实时协作处理 C++ 项目****。 借助 Live Share，无需安装你的项目或其任何依赖项，其他人即可编辑和调试你的代码****。 你可以在编辑时看到彼此的编辑内容，并且每项编辑内容都标记有编辑人员的姓名。
+在 Visual Studio 2019 和 Visual Studio Code 中，可以使用 Live Share 实时协作处理 C++ 项目  。 借助 Live Share，无需安装你的项目或其任何依赖项，其他人即可编辑和调试你的代码  。 你可以在编辑时看到彼此的编辑内容，并且每项编辑内容都标记有编辑人员的姓名。
 
 ![C&#43;&#43; Live Share 编辑](../ide/media/live-share-edit-cpp.png "C++ 中的 Live Share 编辑")
 
@@ -41,13 +41,13 @@ Live Share 会话中具有一个主机以及一个或多个来宾。 主机和�
 
 ![Live Share 按钮的小屏幕截图。](../ide/media/live-share-button-cpp.png "Live Share 按钮")
 
-要结束会话，请从“共享”下拉列表中选择“结束协作会话”********。
+要结束会话，请从“共享”下拉列表中选择“结束协作会话”  。
 
 ![已突出显示“结束协作会话”选项的“共享”下拉列表的屏幕截图。](../ide/media/live-share-end-session-cpp.png "Live Share 按钮")
 
 ## <a name="for-more-information"></a>更多信息
 
-有关 Visual Studio 中 Live Share 的详细信息，请参阅[什么是 Visual Studio Live Share？](/visualstudio/liveshare/)****。 有关 Visual Studio Code 中 Live Share 的详细信息，请参阅 [Live Share](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare)。
+有关 Visual Studio 中 Live Share 的详细信息，请参阅  。 有关 Visual Studio Code 中 Live Share 的详细信息，请参阅 [Live Share](https://marketplace.visualstudio.com/items?itemName=ms-vsliveshare.vsliveshare)。
 
 ## <a name="see-also"></a>另请参阅
 

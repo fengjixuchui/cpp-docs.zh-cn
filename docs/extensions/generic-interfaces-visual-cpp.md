@@ -6,12 +6,12 @@ helpviewer_keywords:
 - generic interfaces
 - interfaces, generic [C++}
 ms.assetid: f3da788a-ba83-4db7-9dcf-9b95a8fb9d1a
-ms.openlocfilehash: f5a74eaafa7ff348079ec367a7c2318f86081f15
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: 61ab514d244c8b41d467d382fa97e30556ccbb32
+ms.sourcegitcommit: ced5ff1431ffbd25b20d106901955532723bd188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87218021"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92135523"
 ---
 # <a name="generic-interfaces-ccli"></a>泛型接口 (C++/CLI)
 
@@ -33,7 +33,7 @@ ms.locfileid: "87218021"
 ## <a name="remarks"></a>备注
 
 *attributes*<br/>
-（可选）其他声明性信息。 有关特性和特性类的详细信息，请参阅**特性**。
+（可选）其他声明性信息。 有关特性和特性类的详细信息，请参阅 **特性**。
 
 class-key**<br/>
 **`class`** 或 **`typename`**
@@ -45,7 +45,7 @@ type-parameter-constraints-clauses**<br/>
 采用[泛型类型参数的约束 (C++/CLI)](constraints-on-generic-type-parameters-cpp-cli.md) 中指定的形式
 
 accessibility-modifiers**<br/>
-可有可无可访问性修饰符（例如**public、private**）。
+ (可选) 可访问性修饰符 (例如 **public、private**) 。
 
 *identifier*<br/>
 接口名称。
@@ -59,7 +59,7 @@ interface-body**<br/>
 *声明符*<br/>
 （可选）基于此类型的变量的声明。
 
-## <a name="example"></a>示例
+## <a name="example-how-to-declare-and-instantiate-a-generic-interface"></a>示例：如何声明和实例化泛型接口
 
 下面的示例展示了如何声明和实例化泛型接口。 此示例声明泛型接口 `IList<ItemType>`。 然后，两个泛型类（`List1<ItemType>` 和 `List2<ItemType>`）通过不同实现来实现它。
 
@@ -236,7 +236,7 @@ Array List
 List2
 ```
 
-## <a name="example"></a>示例
+## <a name="example-declare-a-generic-interface"></a>示例：声明泛型接口
 
 下面的示例声明一个泛型接口 `IMyGenIface`，以及两个专用化 `IMyGenIface` 的非泛型接口（`IMySpecializedInt` 和 `ImySpecializedString`）。 然后，两个专用化接口由两个类（`MyIntClass` 和 `MyStringClass`）实现。 此示例展示了如何专用化泛型接口、如何实例化泛型接口和非泛型接口，以及如何调用接口中已显式实现的成员。
 

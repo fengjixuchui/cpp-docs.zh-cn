@@ -3,12 +3,12 @@ title: 在 Visual Studio 中安装 C++ Linux 工作负载
 description: 如何在 Visual Studio 中下载、安装和设置用于 C++ 的 Linux 工作负载。
 ms.date: 05/03/2020
 ms.assetid: e11b40b2-f3a4-4f06-b788-73334d58dfd9
-ms.openlocfilehash: 3f8e6eb8285652078e5f26ca58601bc6ccfa80d1
-ms.sourcegitcommit: 6280a4c629de0f638ebc2edd446de2a9b11f0406
+ms.openlocfilehash: 1a1b42927d440d1cde847fd1c1b6593e87a3824a
+ms.sourcegitcommit: f19f02f217b80804ab321d463c76ce6f681abcc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90040972"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92176275"
 ---
 # <a name="download-install-and-set-up-the-linux-workload"></a>下载、安装和设置 Linux 工作负载
 
@@ -61,7 +61,7 @@ Visual Studio 中的 Linux 项目要求在远程 Linux 系统或 WSL 上安装�
 - **rsync** 和 zip  - 包含 rsync 和 zip 允许 Visual Studio 将头文件从 Linux 系统提取到 Windows 文件系统以供 IntelliSense 使用。
 - **make**
 - openssh-server  （仅适用于远程 Linux 系统）- Visual Studio 通过安全 SSH 连接以连接到远程 Linux 系统。
-- **CMake**（仅 CMake 项目）- 可以[为 Linux 安装 Microsoft 的静态链接的 CMake 二进制文件](https://github.com/microsoft/CMake/releases)。
+- **CMake** （仅 CMake 项目）- 可以 [为 Linux 安装 Microsoft 的静态链接的 CMake 二进制文件](https://github.com/microsoft/CMake/releases)。
 - ninja-build  （仅 CMake 项目）- [Ninja](https://ninja-build.org/) 是 Visual Studio 2019 版本 16.6 或更高版本中适用于 Linux 和 WSL 配置的默认生成器。
 
 以下命令假设你使用的是 g++ 而非 clang。
@@ -77,7 +77,7 @@ Visual Studio 中的 Linux 项目要求在远程 Linux 系统或 WSL 上安装�
 - rsync  和 zip  - 包含 rsync 和 zip 允许 Visual Studio 将头文件从 Linux 系统提取到 Windows 文件系统以供 IntelliSense 使用。
 - **make**
 - **openssh-server** - Visual Studio 通过安全 SSH 连接以连接到远程 Linux 系统。
-- **CMake**（仅 CMake 项目）- 可以[为 Linux 安装 Microsoft 的静态链接的 CMake 二进制文件](https://github.com/microsoft/CMake/releases)。
+- **CMake** （仅 CMake 项目）- 可以 [为 Linux 安装 Microsoft 的静态链接的 CMake 二进制文件](https://github.com/microsoft/CMake/releases)。
 
 ::: moniker-end
 
@@ -157,7 +157,7 @@ Fedora 使用 dnf 包安装程序  。 要下载 g++、gdb、make、rsync、ninj
 
 现在，可以创建或打开 Linux 项目并将其配置为在目标系统上运行。 有关详细信息，请参见:
 
-- [新建 Linux 项目](create-a-new-linux-project.md)
+- [创建新的 Linux MSBuild C++ 项目](create-a-new-linux-project.md)
 - [配置 Linux CMake 项目](cmake-linux-project.md)
 
 ::: moniker-end

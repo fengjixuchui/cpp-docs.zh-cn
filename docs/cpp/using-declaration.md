@@ -7,12 +7,12 @@ helpviewer_keywords:
 - namespaces [C++], unqualified names in
 - using keyword [C++]
 ms.assetid: 4184e2b1-3adc-408e-b5f3-0b3f8b554723
-ms.openlocfilehash: 3aa0c7c4615aaf5eae9f4eae534e52167bf79ff0
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: 072ecd325a76e80dbd710c241e39fdf7b969e537
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87227018"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008250"
 ---
 # <a name="using-declaration"></a>using 声明
 
@@ -25,19 +25,19 @@ using [typename] nested-name-specifier unqualified-id ;
 using declarator-list ;
 ```
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-*嵌套名称说明符*命名空间、类或枚举名称与范围解析运算符（：:)，由范围解析运算符终止的序列。 单个范围解析运算符可用于引入全局命名空间的名称。 关键字 **`typename`** 是可选的，可用于在从基类引入类模板时解析依赖名称。
+*嵌套名称说明符* 命名空间、类或枚举名称以及范围解析运算符序列 (：： ) ，由范围解析运算符终止。 单个范围解析运算符可用于引入全局命名空间的名称。 关键字 **`typename`** 是可选的，可用于在从基类引入类模板时解析依赖名称。
 
-*非限定 id*非限定 id 表达式，可以是标识符、重载运算符名称、用户定义的文本运算符或转换函数名称、类析构函数名称或模板名称和参数列表。
+*非限定 id* 非限定 id 表达式，可以是标识符、重载运算符名称、用户定义的文本运算符或转换函数名称、类析构函数名称或模板名称和参数列表。
 
-*声明符-列表*以逗号分隔的列表，其中列出了 [ **`typename`** ]*嵌套名称说明符*非*限定标识符*，后面跟有省略号。
+*声明符-列表* 以逗号分隔的列表，其中列出了 [ **`typename`** ] *嵌套名称说明符*非 *限定标识符* ，后面跟有省略号。
 
 ## <a name="remarks"></a>备注
 
-使用声明会将非限定名称引入到在其他位置声明的实体的同义词。 它允许使用特定命名空间中的单个名称，而无需在其出现的声明区域中进行显式限定。 这与[using 指令](../cpp/namespaces-cpp.md#using_directives)相反，后者允许使用命名空间中的*所有*名称而无需进行限定。 **`using`** 关键字还用于[类型别名](../cpp/aliases-and-typedefs-cpp.md)。
+使用声明会将非限定名称引入到在其他位置声明的实体的同义词。 它允许使用特定命名空间中的单个名称，而无需在其出现的声明区域中进行显式限定。 这与 [using 指令](../cpp/namespaces-cpp.md#using_directives)相反，后者允许使用命名空间中的 *所有* 名称而无需进行限定。 **`using`** 关键字还用于[类型别名](../cpp/aliases-and-typedefs-cpp.md)。
 
-## <a name="example"></a>示例
+## <a name="example-using-declaration-in-class-field"></a>示例： `using` 类字段中的声明
 
 使用声明可在类定义中使用。
 
@@ -83,7 +83,7 @@ In B::f()
 In B::g()
 ```
 
-## <a name="example"></a>示例
+## <a name="example-using-declaration-to-declare-a-member"></a>示例：声明 `using` 成员的声明
 
 用于声明成员时，using 声明必须引用基类的成员。
 
@@ -123,7 +123,7 @@ int main() {
 In B::f()
 ```
 
-## <a name="example"></a>示例
+## <a name="example-using-declaration-with-explicit-qualification"></a>示例： `using` 具有显式限定的声明
 
 使用 using 声明声明的成员可以通过使用显式限定来引用。 `::`前缀引用全局命名空间。
 
@@ -163,7 +163,7 @@ In f
 In A::g
 ```
 
-## <a name="example"></a>示例
+## <a name="example-using-declaration-synonyms-and-aliases"></a>示例： `using` 声明同义词和别名
 
 当使用声明时，由声明创建的同义词只引用在使用声明点有效的定义。 在 using 声明后面添加到命名空间的定义是无效同义词。
 
@@ -192,7 +192,7 @@ void b() {
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-local-declarations-and-using-declarations"></a>示例：局部声明和 `using` 声明
 
 对于命名空间中的函数，如果声明区域中提供了一组本地声明和使用单个名称的声明，则它们必须引用同一实体，或者它们必须都引用函数。
 
@@ -215,7 +215,7 @@ void g() {
 
 在上面的示例中， `using B::i` 语句导致第二个 `int i` 在函数中声明 `g()` 。 `using B::f`语句不与函数冲突， `f(char)` 因为引入的函数名称 `B::f` 具有不同的参数类型。
 
-## <a name="example"></a>示例
+## <a name="example-local-function-declarations-and-using-declarations"></a>示例：局部函数声明和 `using` 声明
 
 局部函数声明不能与使用声明引入的函数具有相同的名称和类型。 例如：
 
@@ -242,7 +242,7 @@ void h() {
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-using-declaration-and-inheritance"></a>示例： `using` 声明和继承
 
 就继承而言，当 using 声明将基类中的名称引入派生类作用域时，派生类中的成员函数会重写基类中具有相同名称和参数类型的虚拟成员函数。
 
@@ -300,11 +300,11 @@ In B::g
 In D::g(char)
 ```
 
-## <a name="example"></a>示例
+## <a name="example-using-declaration-accessibility"></a>示例： `using` 声明可访问性
 
 使用声明中提到的名称的所有实例都必须是可访问的。 特别是，如果派生类使用 using 声明访问基类的成员，则该成员名称必须是可访问的。 如果名称是重载成员函数的名称，则所有名为的函数都必须是可访问的。
 
-有关成员的可访问性的详细信息，请参阅[成员访问控制](../cpp/member-access-control-cpp.md)。
+有关成员的可访问性的详细信息，请参阅 [成员访问控制](../cpp/member-access-control-cpp.md)。
 
 ```cpp
 // using_declaration_inheritance2.cpp
@@ -325,7 +325,7 @@ public:
 };
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [命名空间](../cpp/namespaces-cpp.md)<br/>
 [关键字](../cpp/keywords-cpp.md)

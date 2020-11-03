@@ -56,12 +56,12 @@ helpviewer_keywords:
 - formatted text [C++]
 - vsnwprintf function
 ms.assetid: a97f92df-c2f8-4ea0-9269-76920d2d566a
-ms.openlocfilehash: 63a2cd2e6287f9fe960cd60d799f4518b47572ae
-ms.sourcegitcommit: b492516cc65120250b9ea23f96f7f63f37f99fae
+ms.openlocfilehash: e6ed3d146458f514691fe0b20a4c88ffebb5f877
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075759"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008689"
 ---
 # <a name="vsnprintf-_vsnprintf-_vsnprintf_l-_vsnwprintf-_vsnwprintf_l"></a>vsnprintf、_vsnprintf、_vsnprintf_l、_vsnwprintf、_vsnwprintf_l
 
@@ -141,7 +141,7 @@ int _vsnwprintf_l(
 ); // C++ only
 ```
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 *宽限*<br/>
 输出的存储位置
@@ -206,7 +206,7 @@ int _vsnwprintf_l(
 
 **_Vsnprintf**、 **_vsnprintf_l**、 **_Vsnwprintf**和 **_vsnwprintf_l**函数是 Microsoft 特定的。 有关其他兼容性信息，请参阅[兼容性](../../c-runtime-library/compatibility.md)。
 
-## <a name="example"></a>示例
+## <a name="example-use-wide-characters-with-_vsnwprintf"></a>示例：对使用宽字符 `_vsnwprintf()`
 
 ```C
 // crt_vsnwprintf.c
@@ -248,7 +248,7 @@ nSize: -1, buff: Hi there!
 
 如果使用 vsnprintf 以及窄字符串参数代替，结果会发生更改。 *Count*参数可以是缓冲区的全部大小，返回值是当*count*足够大时，将写入的字符数：
 
-## <a name="example"></a>示例
+## <a name="example-use-vsnprintf-with-narrow-strings"></a>示例：使用 `vsnprintf()` 窄字符串
 
 ```C
 // crt_vsnprintf.c
@@ -284,7 +284,7 @@ nSize: 9, buff: Hi there!
 nSize: 10, buff: Hi there!
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [流 I/O](../../c-runtime-library/stream-i-o.md)<br/>
 [vprintf 函数](../../c-runtime-library/vprintf-functions.md)<br/>

@@ -1,6 +1,7 @@
 ---
-title: 操作员地址：&amp;
-ms.date: 11/04/2016
+title: 操作员地址： &amp;
+description: C + + 语言中的地址运算符。
+ms.date: 10/02/2020
 f1_keywords:
 - '&'
 helpviewer_keywords:
@@ -8,30 +9,34 @@ helpviewer_keywords:
 - '& operator'
 - '& operator [C++], address-of operator'
 ms.assetid: 2828221a-15f6-4acc-87fe-25e34feebb88
-ms.openlocfilehash: 836802684e24c721f97dc4c5558d87b9a5e69bc8
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: 8ef7ad065281e4de58ddbdebea25950f8eb9dd06
+ms.sourcegitcommit: 30792632548d1c71894f9fecbe2f554294b86020
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87227681"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765284"
 ---
-# <a name="address-of-operator-amp"></a>操作员地址：&amp;
+# <a name="address-of-operator-amp"></a>操作员地址： &amp;
 
 ## <a name="syntax"></a>语法
 
-```
-& cast-expression
-```
+> **`&`** *`cast-expression`*
 
-## <a name="remarks"></a>备注
+## <a name="remarks"></a>注解
 
-一元地址运算符（ **&** ）采用其操作数的地址。 Address 运算符的操作数可以是函数指示符或指定不是位域的对象的左值。
+运算符的一元地址 (**`&`**) 采用其操作数的地址。 Address 运算符的操作数可以是函数指示符或指定不是位域的对象的左值。
 
-address-of 运算符仅适用于具有基本、结构、类或在文件范围级别声明的联合类型的变量，或仅适用于下标数组引用。 在这些表达式中，可在 address-of 表达式中添加或提取不包括 address-of 运算符的常数表达式。
+Address 运算符只能应用于在文件范围级别声明的基本、结构、类或联合类型的变量，或者应用于下标数组引用。 在这些表达式中，可在地址表达式中添加或减去不包含 address 运算符的常量表达式。
 
-当应用于函数或左值时，该表达式的结果将是派生自操作数类型（右值）的指针类型。 例如，如果操作数的类型为，则 **`char`** 表达式的结果为指向的类型指针 **`char`** 。 应用于或对象的 address 运算符的 **`const`** **`volatile`** 计算结果为 `const type *` 或 `volatile type *` ，其中**type**是原始对象的类型。
+当应用于函数或左值时，该表达式的结果将是派生自操作数类型（右值）的指针类型。 例如，如果操作数的类型为，则 **`char`** 表达式的结果为指向的类型指针 **`char`** 。 应用于或对象的 address 运算符的 **`const`** **`volatile`** 计算结果为 `const type *` 或 `volatile type *` ，其中 `type` 是原始对象的类型。
 
-当将地址运算符应用于限定名称时，结果取决于*限定名*是否指定了静态成员。 如果是这样，则结果为指向成员声明中指定的类型的指针。 如果成员不是静态的，则结果是一个指针，指向由*限定类名称*指示的类的成员*名称*。 （有关*限定类名*的详细信息，请参阅[主表达式](../cpp/primary-expressions.md)。）下面的代码片段演示了结果如何不同，具体取决于该成员是否为静态成员：
+只有在清除函数的哪个版本被引用时，才能执行重载函数的地址。 有关如何获取特定重载函数的地址的信息，请参阅 [函数重载](function-overloading.md) 。
+
+当将地址运算符应用于限定名称时，结果取决于 *限定名* 是否指定了静态成员。 如果是这样，则结果为指向成员声明中指定的类型的指针。 对于非静态成员，结果是一个指针，指向由*限定类名称*指示的类的成员*名称*。 有关 *限定类名*的详细信息，请参阅 [主表达式](../cpp/primary-expressions.md)。
+
+## <a name="example-address-of-static-member"></a>示例：静态成员的地址
+
+下面的代码段演示如何根据类成员是否是静态的，地址运算符结果如何变化：
 
 ```cpp
 // expre_Address_Of_Operator.cpp
@@ -51,11 +56,9 @@ int main() {
 
 在此示例中，由于 `&PTM::fValue` 是静态成员，因此表达式 `float *` 产生类型 `float PTM::*` 而不是类型 `fValue`。
 
-仅当明确要引用的函数的版本时，才能采用重载函数的地址。 有关如何获取特定重载函数的地址的信息，请参阅[函数重载](function-overloading.md)。
+## <a name="example-address-of-a-reference-type"></a>示例：引用类型的地址
 
-通过将 address-of 运算符应用于引用类型，可获得与将该运算符应用于引用绑定到的对象所获得的结果相同的结果。 例如：
-
-## <a name="example"></a>示例
+通过将 address-of 运算符应用于引用类型，可获得与将该运算符应用于引用绑定到的对象所获得的结果相同的结果。 例如： 。
 
 ```cpp
 // expre_Address_Of_Operator2.cpp
@@ -72,11 +75,11 @@ int main() {
 }
 ```
 
-## <a name="output"></a>输出
-
 ```Output
 &d equals &rd
 ```
+
+## <a name="example-function-address-as-parameter"></a>示例：作为参数的函数地址
 
 以下示例使用 address-of 运算符将指针自变量传递给函数：
 
@@ -99,8 +102,6 @@ int main() {
 }
 ```
 
-## <a name="output"></a>Output
-
 ```Output
 25
 ```
@@ -108,6 +109,6 @@ int main() {
 ## <a name="see-also"></a>请参阅
 
 [使用一元运算符的表达式](../cpp/expressions-with-unary-operators.md)<br/>
-[C++ 内置运算符、优先级和关联性](../cpp/cpp-built-in-operators-precedence-and-associativity.md)<br/>
+[C + + 内置运算符、优先级和结合性](../cpp/cpp-built-in-operators-precedence-and-associativity.md)<br/>
 [Lvalue 引用声明符：&](../cpp/lvalue-reference-declarator-amp.md)<br/>
-[间接寻址和地址运算符](../c-language/indirection-and-address-of-operators.md)
+[间接寻址和 Address-of 运算符](../c-language/indirection-and-address-of-operators.md)

@@ -8,12 +8,12 @@ helpviewer_keywords:
 - Visual C++ projects, properties
 - projects [C++], properties
 ms.assetid: 9b0d6f8b-7d4e-4e61-aa75-7d14944816cd
-ms.openlocfilehash: 17b54311670f78cda78403c273cfbf57d43e84da
-ms.sourcegitcommit: 6280a4c629de0f638ebc2edd446de2a9b11f0406
+ms.openlocfilehash: 3ee6b21cc1bcb8e33bc76d2efab58808bfc0aa2b
+ms.sourcegitcommit: 9451db8480992017c46f9d2df23fb17b503bbe74
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90042181"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91589869"
 ---
 # <a name="set-compiler-and-build-properties"></a>设置编译器和生成属性
 
@@ -117,7 +117,7 @@ v:<br/>
 
 ## <a name="set-environment-variables-for-a-build"></a>设置生成的环境变量
 
-MSVC 编译器 (cl.exe) 可识别某些环境变量，尤其是 LIB、LIBPATH、PATH 和 INCLUDE。 使用 IDE 生成时，[VC++ Directories Property Page](reference/vcpp-directories-property-page.md) 属性页中设置的属性用于设置那些环境变量。 如果已设置了 LIB、LIBPATH 和 INCLUDE 值（例如通过开发人员命令提示设置），则这些值将被相应的 MSBuild 属性的值替换。 然后生成在 PATH 前预置 VC++ 目录可执行目录属性的值。 你可以通过创建用户定义的宏然后选中显示“在生成环境中将此宏设置为环境变量”的框来设置用户定义的环境变量  。
+MSVC 编译器 (cl.exe) 可识别某些环境变量，尤其是 LIB、LIBPATH、PATH 和 INCLUDE。 使用 IDE 生成时，[VC++ Directories Property Page](reference/vcpp-directories-property-page.md) 属性页中设置的属性用于设置那些环境变量。 如果已设置了 LIB、LIBPATH 和 INCLUDE 值（例如通过开发人员命令提示设置），则这些值将被相应的 MSBuild 属性的值替换。 然后生成在 PATH 前预置 VC++ 目录可执行目录属性的值。 你可以通过创建用户定义的宏然后选中显示“在生成环境中将此宏设置为环境变量”的框来设置用户定义的环境变量。
 
 ## <a name="set-environment-variables-for-a-debugging-session"></a>设置调试会话的环境变量
 

@@ -1,7 +1,7 @@
 ---
 title: /std（指定语言标准版本）
 description: MSVC 编译器选项/std 指定编译器支持的 C 或 c + + 语言标准。
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 f1_keywords:
 - /std
 - -std
@@ -11,12 +11,12 @@ f1_keywords:
 - /std:c17
 - VC.Project.VCCLCompilerTool.CppLanguageStandard
 ms.assetid: 0acb74ba-1aa8-4c05-b96c-682988dc19bd
-ms.openlocfilehash: 82f37377dc223bfe3f5e578e1c7f390da91752a1
-ms.sourcegitcommit: b492516cc65120250b9ea23f96f7f63f37f99fae
+ms.openlocfilehash: 208789071ff028107d3c7311c3b5c6cf3eea7c1d
+ms.sourcegitcommit: 4abc6c4c9694f91685cfd77940987e29a51e3143
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90075824"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238468"
 ---
 # <a name="std-specify-language-standard-version"></a>`/std` (指定语言标准版本) 
 
@@ -59,7 +59,7 @@ ms.locfileid: "90075824"
 > [!IMPORTANT]
 > 启用的编译器和库功能 **`/std:c++latest`** 表示可能出现在将来的 c + + 标准中的功能，以及已批准的 c + + 20 功能。 未经批准的功能可能会在不经通知的情况下进行中断性变更或删除，并按原样提供。
 
-**`/std`** 可以通过使用[ \_ MSVC \_ LANG](../../preprocessor/predefined-macros.md)预处理器宏来检测 c + + 编译过程中有效的选项。 有关详细信息，请参阅 [预处理器宏](../../preprocessor/predefined-macros.md)。
+**`/std`** 可以通过使用 [ \_ MSVC \_ LANG](../../preprocessor/predefined-macros.md)预处理器宏来检测 c + + 编译过程中有效的选项。 有关详细信息，请参阅 [预处理器宏](../../preprocessor/predefined-macros.md)。
 
 **`/std:c++14`** **`/std:c++latest`** 从 Visual Studio 2015 Update 3 开始提供和选项。 **`/std:c++17`** 从 Visual Studio 2017 版本15.3 开始，可以使用选项。 如上所述，某些 c + + 17 标准行为是通过选项启用的 **`/std:c++14`** ，但所有其他 c + + 17 功能都是通过启用的 **`/std:c++17`** 。 在实现完成之前，c + + 20 功能处于启用状态 **`/std:c++latest`** 。
 
@@ -77,7 +77,7 @@ ms.locfileid: "90075824"
 
 指定或时 **`/std:c11`** **`/std:c17`** ，MSVC 支持 C11 和 C17 的所有必需功能。 编译器选项支持以下功能：
 
-- **`_Pragma`**
+- [`_Pragma`](../../preprocessor/pragma-directives-and-the-pragma-keyword.md#the-_pragma-preprocessing-operator-c99-c11)
 
 - **`restrict`**
 
@@ -107,11 +107,11 @@ ms.locfileid: "90075824"
 
 1. 打开项目的“属性页”  对话框。 有关详细信息，请参阅[在 Visual Studio 中设置 C++ 编译器和生成属性](../working-with-project-properties.md)。
 
-1. 依次选择“配置属性”、“C/C++”和“语言”************。
+1. 依次选择“配置属性”、“C/C++”和“语言”  。
 
-1. 在 c **+ + 语言标准** (或 c， **c 语言标准**) 中，从下拉控件中选择要支持的语言标准，然后选择 **"确定" 或 "** **应用** " 保存更改。
+1. 在 c **+ + 语言标准** (或 c， **c 语言标准** ) 中，从下拉控件中选择要支持的语言标准，然后选择 **"确定" 或 "** **应用** " 保存更改。
 
 ## <a name="see-also"></a>另请参阅
 
 [MSVC 编译器选项](compiler-options.md)<br/>
-[MSVC 编译器命令行语法](compiler-command-line-syntax.md)
+[MSVC 编译器 Command-Line 语法](compiler-command-line-syntax.md)

@@ -11,12 +11,12 @@ helpviewer_keywords:
 - POSIX file names
 - UNIX, compatibility
 ms.assetid: 40792414-7a5b-415d-bfa8-2bfb1ebb3731
-ms.openlocfilehash: 07f5ffeec8696ded5880c45ed2ea1a5107bee48c
-ms.sourcegitcommit: 9451db8480992017c46f9d2df23fb17b503bbe74
+ms.openlocfilehash: 3975db2407943b329fa7eded0d72d63524428210
+ms.sourcegitcommit: 30792632548d1c71894f9fecbe2f554294b86020
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91590142"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765219"
 ---
 # <a name="unix"></a>UNIX
 
@@ -29,8 +29,8 @@ ms.locfileid: "91590142"
 - 使用在 UNIX 中正常运行的路径和文件名（区分大小写）。 Win32 操作系统中的文件分配表 (FAT) 文件系统不区分大小写。 NTFS 文件系统保留目录列表的大小写，但在文件搜索和其他系统操作中忽略大小写。
 
 > [!NOTE]
->  在此版本的 Visual C++ 中，已从函数描述中删除 UNIX 兼容性信息。
+> 在此版本的 Visual C++ 中，已从函数描述中删除 UNIX 兼容性信息。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [兼容性](../c-runtime-library/compatibility.md)

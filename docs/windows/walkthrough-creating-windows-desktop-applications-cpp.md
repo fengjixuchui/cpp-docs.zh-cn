@@ -7,12 +7,12 @@ helpviewer_keywords:
 - Windows applications [C++], Win32
 - Windows Desktop applications [C++]
 - Windows API [C++]
-ms.openlocfilehash: c729fa183a03860de012e64d110f3b3ac7e7e8d0
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: 36991cf98867e7da218f7414d1ea02aab55301a3
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91503665"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924238"
 ---
 # <a name="walkthrough-create-a-traditional-windows-desktop-application-c"></a>演练：创建传统的 Windows 桌面应用程序 (c + +) 
 
@@ -39,25 +39,25 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
 
 按照以下步骤创建您的第一个 Windows 桌面项目。 当你执行此操作时，你将为正在运行的 Windows 桌面应用程序输入代码。 若要查看 Visual Studio 首选项的文档，请使用“版本”选择器控件。 它位于此页面上目录表的顶部。
 
-::: moniker range="vs-2019"
+::: moniker range="msvc-160"
 
 ### <a name="to-create-a-windows-desktop-project-in-visual-studio-2019"></a>在 Visual Studio 2019 中创建 Windows 桌面项目
 
 1. 在主菜单中，依次选择“文件”>“新建”>“项目”，以打开“新建项目”对话框。
 
-1. 在对话框顶部，将 "**语言**" 设置为 " **c + +**"，将 "**平台**" 设置为 " **Windows**"，将 "**项目类型**" 设置为 "**桌面**
+1. 在对话框顶部，将 " **语言** " 设置为 " **c + +** "，将 " **平台** " 设置为 " **Windows** "，将 " **项目类型** " 设置为 " **桌面**
 
-1. 从筛选的项目类型列表中，选择 " **Windows 桌面向导** "，然后选择 " **下一步**"。 在下一页中，输入项目的名称，例如 " *DesktopApp*"。
+1. 从筛选的项目类型列表中，选择 " **Windows 桌面向导** "，然后选择 " **下一步** "。 在下一页中，输入项目的名称，例如 " *DesktopApp* "。
 
 1. 选择“创建”  按钮创建项目。
 
-1. 此时将显示 " **Windows 桌面项目** " 对话框。 在 " **应用程序类型**" 下，选择 " **桌面应用程序 ( .exe) **。 在“附加选项”  下，选择“空项目”  。 选择“确定”，创建项目  。
+1. 此时将显示 " **Windows 桌面项目** " 对话框。 在 " **应用程序类型** " 下，选择 " **桌面应用程序 ( .exe)** 。 在“附加选项”  下，选择“空项目”  。 选择“确定”，创建项目  。
 
-1. 在 **解决方案资源管理器**中，右键单击 **DesktopApp** 项目，选择 " **添加**"，然后选择 " **新建项**"。
+1. 在 **解决方案资源管理器** 中，右键单击 **DesktopApp** 项目，选择 " **添加** "，然后选择 " **新建项** "。
 
    ![显示用户在 Visual Studio 2019 中将新项添加到 DesktopApp 项目的简短视频。](../build/media/desktop-app-project-add-new-item-153.gif "向 DesktopApp 项目添加新项")
 
-1. 在“添加新项” **** 对话框中选择“C++ 文件(.cpp)” ****。 在 " **名称** " 框中，键入文件的名称，例如 " *HelloWindowsDesktop*"。 选择“添加”。
+1. 在“添加新项”  对话框中选择“C++ 文件(.cpp)”  。 在 " **名称** " 框中，键入文件的名称，例如 " *HelloWindowsDesktop* "。 选择“添加”。
 
    ![Visual Studio 2019 中的 "添加新项" 对话框的屏幕截图，其中已安装 > Visual C + + plus，并且突出显示了 C + + 文件选项。](../build/media/desktop-app-add-cpp-file-153.png "将 .cpp 文件添加到 DesktopApp 项目")
 
@@ -65,25 +65,25 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
 
 ::: moniker-end
 
-::: moniker range="vs-2017"
+::: moniker range="msvc-150"
 
 ### <a name="to-create-a-windows-desktop-project-in-visual-studio-2017"></a>在 Visual Studio 2017 中创建 Windows 桌面项目
 
-1. 在“文件”菜单上选择“新建”，再选择“项目”。************
+1. 在“文件”菜单上选择“新建”，再选择“项目”。 
 
-1. 在 "**新建项目**" 对话框的左窗格中，展开 "**已安装**  >  "**Visual C++**，然后选择 " **Windows 桌面**"。 在中间窗格中，选择 " **Windows 桌面向导**"。
+1. 在 " **新建项目** " 对话框的左窗格中，展开 " **已安装**  >  " **Visual C++** ，然后选择 " **Windows 桌面** "。 在中间窗格中，选择 " **Windows 桌面向导** "。
 
-   在 " **名称** " 框中，键入项目的名称，例如 " *DesktopApp*"。 选择 **“确定”** 。
+   在 " **名称** " 框中，键入项目的名称，例如 " *DesktopApp* "。 选择 **“确定”** 。
 
    ![Visual Studio 2017 中的 "新建项目" 对话框的屏幕截图，其中安装的 > Visual C + + > 选中 "windows 桌面向导" 选项，突出显示了 Windows 桌面向导选项，并在 "名称" 文本框中键入 DesktopApp。](../build/media/desktop-app-new-project-name-153.png "为 DesktopApp 项目命名")
 
-1. 在 " **Windows 桌面项目** " 对话框中的 " **应用程序类型**" 下，选择 " **Windows 应用程序 ( .exe) **。 在“附加选项”  下，选择“空项目”  。 请确保未选择 " **预编译头** "。 选择“确定”，创建项目  。
+1. 在 " **Windows 桌面项目** " 对话框中的 " **应用程序类型** " 下，选择 " **Windows 应用程序 ( .exe)** 。 在“附加选项”  下，选择“空项目”  。 请确保未选择 " **预编译头** "。 选择“确定”，创建项目  。
 
-1. 在 **解决方案资源管理器**中，右键单击 **DesktopApp** 项目，选择 " **添加**"，然后选择 " **新建项**"。
+1. 在 **解决方案资源管理器** 中，右键单击 **DesktopApp** 项目，选择 " **添加** "，然后选择 " **新建项** "。
 
    ![显示用户在 Visual Studio 2017 中将新项添加到 DesktopApp 项目的简短视频。](../build/media/desktop-app-project-add-new-item-153.gif "向 DesktopApp 项目添加新项")
 
-1. 在“添加新项” **** 对话框中选择“C++ 文件(.cpp)” ****。 在 " **名称** " 框中，键入文件的名称，例如 " *HelloWindowsDesktop*"。 选择“添加”。
+1. 在“添加新项”  对话框中选择“C++ 文件(.cpp)”  。 在 " **名称** " 框中，键入文件的名称，例如 " *HelloWindowsDesktop* "。 选择“添加”。
 
    ![Visual Studio 2017 中的 "添加新项" 对话框的屏幕截图，其中已安装 > Visual C + + plus，并且突出显示了 C + + 文件选项。](../build/media/desktop-app-add-cpp-file-153.png "将 .cpp 文件添加到 DesktopApp 项目")
 
@@ -91,29 +91,29 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
 
 ::: moniker-end
 
-::: moniker range="vs-2015"
+::: moniker range="msvc-140"
 
 ### <a name="to-create-a-windows-desktop-project-in-visual-studio-2015"></a>在 Visual Studio 2015 中创建 Windows 桌面项目
 
-1. 在“文件”菜单上选择“新建”，再选择“项目”。************
+1. 在“文件”菜单上选择“新建”，再选择“项目”。 
 
-1. 在 "**新建项目**" 对话框的左窗格中，展开 "**已安装**  >  的**模板**"  >  **Visual C++**，然后选择 " **Win32**"。 在中间窗格中，选择“Win32 项目” ****。
+1. 在 " **新建项目** " 对话框的左窗格中，展开 " **已安装**  >  的 **模板** "  >  **Visual C++** ，然后选择 " **Win32** "。 在中间窗格中，选择“Win32 项目”  。
 
-   在 " **名称** " 框中，键入项目的名称，例如 " *DesktopApp*"。 选择 **“确定”** 。
+   在 " **名称** " 框中，键入项目的名称，例如 " *DesktopApp* "。 选择 **“确定”** 。
 
    ![Visual Studio 2015 中的 "新建项目" 对话框的屏幕截图，其中包含已安装的 > 模板 > Visual C + + 所选 > Win32，"Win32 项目" 选项突出显示，并在 "名称" 文本框中键入 DesktopApp。](../build/media/desktop-app-new-project-name-150.png "为 DesktopApp 项目命名")
 
-1. 在 " **Win32 应用程序向导**" 的 "**概述**" 页上，选择 "**下一步**"。
+1. 在 " **Win32 应用程序向导** " 的 " **概述** " 页上，选择 " **下一步** "。
 
    ![在 Win32 应用程序向导中创建 DesktopApp 概述](../build/media/desktop-app-win32-wizard-overview-150.png "在 Win32 应用程序向导中创建 DesktopApp 概述")
 
-1. 在 " **应用程序设置** " 页的 " **应用程序类型**" 下，选择 " **Windows 应用程序**"。 在 **其他选项**下，取消选中 " **预编译头**"，然后选择 " **空项目**"。 选择“完成”以创建项目  。
+1. 在 " **应用程序设置** " 页的 " **应用程序类型** " 下，选择 " **Windows 应用程序** "。 在 **其他选项** 下，取消选中 " **预编译头** "，然后选择 " **空项目** "。 选择“完成”以创建项目  。
 
-1. 在 **解决方案资源管理器**中，右键单击 DesktopApp 项目，选择 " **添加**"，然后选择 " **新建项**"。
+1. 在 **解决方案资源管理器** 中，右键单击 DesktopApp 项目，选择 " **添加** "，然后选择 " **新建项** "。
 
    ![显示用户在 Visual Studio 2015 中将新项添加到 DesktopApp 项目的简短视频。](../build/media/desktop-app-project-add-new-item-150.gif "向 DesktopApp 项目添加新项")
 
-1. 在“添加新项” **** 对话框中选择“C++ 文件(.cpp)” ****。 在 " **名称** " 框中，键入文件的名称，例如 " *HelloWindowsDesktop*"。 选择“添加”。
+1. 在“添加新项”  对话框中选择“C++ 文件(.cpp)”  。 在 " **名称** " 框中，键入文件的名称，例如 " *HelloWindowsDesktop* "。 选择“添加”。
 
    ![Visual Studio 2015 中的 "添加新项" 对话框的屏幕截图，其中已安装 > Visual C + + plus，并且突出显示了 C + + 文件选项。](../build/media/desktop-app-add-cpp-file-150.png "将 .cpp 文件添加到 DesktopApp 项目")
 
@@ -141,7 +141,7 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
    有关此函数的参数和返回值的信息，请参阅 [WinMain 入口点](/windows/win32/api/winbase/nf-winbase-winmain)。
 
    > [!NOTE]
-   > 所有这些额外的词，例如 `CALLBACK` 、或 `HINSTANCE` `_In_` 。 传统的 Windows API 广泛使用 typedef 和预处理器宏来抽象掉某些类型的详细信息和特定于平台的代码，例如调用约定、 **`__declspec`** 声明和编译器杂注。 在 Visual Studio 中，可以使用 IntelliSense [快速信息](/visualstudio/ide/using-intellisense#quick-info) 功能来查看这些 typedef 和宏定义的内容。 将鼠标悬停在感兴趣的字词上，或选择它，**然后按 ctrl** + **K**， **ctrl** + **I**获取包含定义的小的弹出窗口。 有关详细信息，请参阅[使用 IntelliSense](/visualstudio/ide/using-intellisense)。 参数和返回类型通常使用 *SAL 批注* 来帮助您捕获编程错误。 有关详细信息，请参阅 [使用 SAL 注释减少 C/c + + 代码缺陷](../code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects.md)。
+   > 所有这些额外的词，例如 `CALLBACK` 、或 `HINSTANCE` `_In_` 。 传统的 Windows API 广泛使用 typedef 和预处理器宏来抽象掉某些类型的详细信息和特定于平台的代码，例如调用约定、 **`__declspec`** 声明和编译器杂注。 在 Visual Studio 中，可以使用 IntelliSense [快速信息](/visualstudio/ide/using-intellisense#quick-info) 功能来查看这些 typedef 和宏定义的内容。 将鼠标悬停在感兴趣的字词上，或选择它， **然后按 ctrl** + **K** ， **ctrl** + **I** 获取包含定义的小的弹出窗口。 有关详细信息，请参阅[使用 IntelliSense](/visualstudio/ide/using-intellisense)。 参数和返回类型通常使用 *SAL 批注* 来帮助您捕获编程错误。 有关详细信息，请参阅 [使用 SAL 注释减少 C/c + + 代码缺陷](../code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects.md)。
 
 1. Windows 桌面程序需要 &lt;>。 &lt;tchar> 定义 `TCHAR` 宏， **`wchar_t`** 如果在项目中定义了 UNICODE 符号，则该宏将最终解析为，否则它将解析为 **`char`** 。  如果你始终启用了 UNICODE 生成，则无需 TCHAR，只需直接使用即可 **`wchar_t`** 。
 
@@ -161,7 +161,7 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
    );
    ```
 
-   在此函数中，你将编写代码来处理应用程序在发生*事件*时从 Windows 接收的*消息*。 例如，如果用户在您的应用程序中选择了 "确定" 按钮，Windows 将向您发送一条消息，您可以在函数内编写 `WndProc` 执行任何适当工作的代码。 这称为 *处理* 事件。 仅处理与应用程序相关的事件。
+   在此函数中，你将编写代码来处理应用程序在发生 *事件* 时从 Windows 接收的 *消息* 。 例如，如果用户在您的应用程序中选择了 "确定" 按钮，Windows 将向您发送一条消息，您可以在函数内编写 `WndProc` 执行任何适当工作的代码。 这称为 *处理* 事件。 仅处理与应用程序相关的事件。
 
    有关详细信息，请参阅 [窗口过程](/windows/win32/winmsg/window-procedures)。
 
@@ -432,7 +432,7 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
 
 ### <a name="to-build-this-example"></a>生成此示例
 
-1. 在编辑器中删除在 *HelloWindowsDesktop* 中输入的任何代码。 复制此示例代码，然后将其粘贴到 *HelloWindowsDesktop*中：
+1. 在编辑器中删除在 *HelloWindowsDesktop* 中输入的任何代码。 复制此示例代码，然后将其粘贴到 *HelloWindowsDesktop* 中：
 
    ```cpp
    // HelloWindowsDesktop.cpp
@@ -584,7 +584,7 @@ Windows API (也称为 Win32 API、Windows 桌面 API 和 Windows Classic API) �
 
    ![生成 DesktopApp 项目](../build/media/desktop-app-project-build-150.gif "生成 DesktopApp 项目")
 
-1. 若要运行应用程序，请按 **F5**。 包含文本 "Hello，Windows desktop！" 的窗口 文字的窗口。
+1. 若要运行应用程序，请按 **F5** 。 包含文本 "Hello，Windows desktop！" 的窗口 文字的窗口。
 
    ![运行 DesktopApp 项目](../build/media/desktop-app-project-run-157.PNG "运行 DesktopApp 项目")
 

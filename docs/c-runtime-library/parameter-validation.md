@@ -6,12 +6,12 @@ ms.topic: conceptual
 helpviewer_keywords:
 - parameters, validation
 ms.assetid: 019dd5f0-dc61-4d2e-b4e9-b66409ddf1f2
-ms.openlocfilehash: 60ded7fc5a4388b2c4bf87ab5a388caab5fc47c2
-ms.sourcegitcommit: 9451db8480992017c46f9d2df23fb17b503bbe74
+ms.openlocfilehash: 8378e4bf9bdfc950002c3ed8c3ef50c27a3c162d
+ms.sourcegitcommit: 30792632548d1c71894f9fecbe2f554294b86020
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91589817"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765254"
 ---
 # <a name="parameter-validation"></a>参数验证
 
@@ -25,11 +25,11 @@ ms.locfileid: "91589817"
 
 无效参数处理程序调度函数调用当前分配的无效参数处理程序。 默认情况下，无效参数 `_invoke_watson` 会调用，这会导致应用程序关闭并生成小型转储。 如果操作系统启用了此功能，则会出现一个对话框，询问用户是否要将故障转储发送到 Microsoft 进行分析。
 
-您可以使用函数 [_set_invalid_parameter_handler](../c-runtime-library/reference/set-invalid-parameter-handler-set-thread-local-invalid-parameter-handler.md) 或 [_set_thread_local_invalid_parameter_handler](../c-runtime-library/reference/set-invalid-parameter-handler-set-thread-local-invalid-parameter-handler.md) 来更改此行为，以将无效参数处理程序设置为您自己的函数。 如果指定的函数未终止应用程序，控制权就会返回至已接收无效参数的函数处。 在 CRT 中，这些函数通常会停止执行函数，将设置 `errno` 为错误代码，并返回错误代码。 在许多情况下， `errno` 值和返回值都是 `EINVAL` ，用于指示参数无效。 有时候会返回更具体的错误代码，如作为参数传递的错误的文件指针的 `EBADF`。 
+您可以使用函数 [_set_invalid_parameter_handler](../c-runtime-library/reference/set-invalid-parameter-handler-set-thread-local-invalid-parameter-handler.md) 或 [_set_thread_local_invalid_parameter_handler](../c-runtime-library/reference/set-invalid-parameter-handler-set-thread-local-invalid-parameter-handler.md) 来更改此行为，以将无效参数处理程序设置为您自己的函数。 如果指定的函数未终止应用程序，控制权就会返回至已接收无效参数的函数处。 在 CRT 中，这些函数通常会停止执行函数，将设置 `errno` 为错误代码，并返回错误代码。 在许多情况下， `errno` 值和返回值都是 `EINVAL` ，用于指示参数无效。 有时候会返回更具体的错误代码，如作为参数传递的错误的文件指针的 `EBADF`。
 
 有关 `errno` 的详细信息，请参阅 [errno、_doserrno、_sys_errlist 和 _sys_nerr](../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md)。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [CRT 中的安全功能](../c-runtime-library/security-features-in-the-crt.md)\
 [CRT 库功能](../c-runtime-library/crt-library-features.md)

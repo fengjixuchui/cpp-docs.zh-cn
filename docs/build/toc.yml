@@ -369,6 +369,8 @@
               href: ../build/reference/property-page-xml-files.md
             - name: .vcxproj 和 .props 文件结构
               href: ../build/reference/vcxproj-file-structure.md
+            - name: .vcxproj 文件和通配符
+              href: ../build/reference/vcxproj-files-and-wildcards.md
             - name: 示例项目文件
               href: ../build/reference/project-files.md
             - name: .vcxproj.filters 文件结构

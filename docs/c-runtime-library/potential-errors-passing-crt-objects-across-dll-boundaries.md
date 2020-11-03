@@ -6,12 +6,12 @@ ms.topic: conceptual
 helpviewer_keywords:
 - DLL conflicts [C++]
 ms.assetid: c217ffd2-5d9a-4678-a1df-62a637a96460
-ms.openlocfilehash: f6d831ac8b86be8a6669e8ee6c66da64507d129f
-ms.sourcegitcommit: 9451db8480992017c46f9d2df23fb17b503bbe74
+ms.openlocfilehash: 2d42803b5eca7a43f122d209b7d9e2d4e45c38de
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91590181"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008935"
 ---
 # <a name="potential-errors-passing-crt-objects-across-dll-boundaries"></a>跨 DLL 边界传递 CRT 对象时可能的错误
 
@@ -33,7 +33,7 @@ CRT 对象（如文件句柄、环境变量和区域设置）仅对在其中分�
 
 仅在 DLL 及其客户端都在加载时链接到相同版本的 CRT DLL 时，二者才使用相同的 CRT 库副本。 由于 Visual Studio 2015 所用的通用 CRT 库的 DLL 版本以及 Windows 10 上的更高版本，现已集中部署 Windows 组件 ( # A0) ，这对于使用 Visual Studio 2015 和更高版本生成的应用程序是相同的。 但是，即使 CRT 代码是相同的，也不能向使用不同堆的组件分配一个堆中分配的内存。
 
-## <a name="example"></a>示例
+## <a name="example-pass-file-handle-across-dll-boundary"></a>示例：跨 DLL 边界传递文件句柄
 
 ### <a name="description"></a>说明
 
@@ -75,7 +75,7 @@ int main(void)
 this is a string
 ```
 
-## <a name="example"></a>示例
+## <a name="example-pass-environment-variables-across-dll-boundary"></a>示例：跨 DLL 边界传递环境变量
 
 ### <a name="description"></a>说明
 
@@ -128,6 +128,6 @@ MYLIB has not been set.
 New MYLIB variable is: c:\mylib;c:\yourlib
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [CRT 库功能](../c-runtime-library/crt-library-features.md)

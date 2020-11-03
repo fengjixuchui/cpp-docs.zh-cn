@@ -21,12 +21,12 @@ helpviewer_keywords:
 - properties [C++], resources
 - resources [C++], properties
 ms.assetid: e20a29ec-d6fb-4ead-98f3-431a0e23aaaf
-ms.openlocfilehash: 2552f9eea79aa0a3545d9746d85cacfbd9a3f25d
-ms.sourcegitcommit: d9c94dcabd94537e304be0261b3263c2071b437b
+ms.openlocfilehash: f854f3cc6e61e3022e784befc738bf28c1adeb6c
+ms.sourcegitcommit: 30792632548d1c71894f9fecbe2f554294b86020
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91353163"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765242"
 ---
 # <a name="resource-editors-c"></a>资源编辑器 (c + +) 
 
@@ -58,7 +58,7 @@ ms.locfileid: "91353163"
 
 某些资源类型是可以通过各种方式导入和使用的单独文件。其中包括位图、图标、光标、工具栏和 html 文件。 此类资源具有文件名和 [资源标识符](../windows/symbols-resource-identifiers.md)。 Win32 项目中的其他类（如对话框、菜单和字符串表）仅作为资源脚本 ( 的一部分存在) 文件或资源模板 ( .rct) 文件中。
 
-还可以在项目外编辑资源，而无需打开项目。 有关详细信息，请参阅 [如何：创建资源](../windows/how-to-open-a-resource-script-file-outside-of-a-project-standalone.md)。
+还可以在项目外编辑资源，而无需打开项目。 有关详细信息，请参阅 [如何：创建资源](./how-to-create-a-resource-script-file.md)。
 
 > [!NOTE]
 > 可以使用 " **属性** " 窗口修改资源的属性。
@@ -126,7 +126,7 @@ ms.locfileid: "91353163"
 
 无
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [使用资源文件](../windows/working-with-resource-files.md)<br/>
 [资源文件](../windows/resource-files-visual-studio.md)<br/>

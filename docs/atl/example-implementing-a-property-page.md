@@ -4,22 +4,22 @@ ms.date: 05/09/2019
 helpviewer_keywords:
 - property pages, implementing
 ms.assetid: c30b67fe-ce08-4249-ae29-f3060fa8d61e
-ms.openlocfilehash: dd74dd4562a3c4a8bff2c58d5f1d801f5dd06fd8
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: 82c2bd3765802f87025eaf2dfbda8f7467bbe9a0
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91499619"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92921238"
 ---
 # <a name="example-implementing-a-property-page"></a>示例：实现属性页
 
-::: moniker range="vs-2019"
+::: moniker range="msvc-160"
 
 ATL 属性页向导不适用于 Visual Studio 2019 及更高版本。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
 此示例展示了如何生成属性页来显示（并允许更改）[文档类](../mfc/document-classes.md)接口的属性。
 
@@ -47,7 +47,7 @@ ATL 属性页向导不适用于 Visual Studio 2019 及更高版本。
 
 ## <a name="adding-the-atl-property-page-class"></a><a name="vcconusing_the_atl_object_wizard"></a> 添加 ATL 属性页类
 
-首先，为名为“`ATLPages7`”的 DLL 服务器新建 ATL 项目。 现在使用 [ATL 属性页向导](../atl/reference/atl-property-page-wizard.md)来生成属性页。 为属性页命名“DocProperties”**** 作为“短名称”****，然后切换到“字符串”**** 页，以设置属性页专用项，如下表所示。
+首先，为名为“`ATLPages7`”的 DLL 服务器新建 ATL 项目。 现在使用 [ATL 属性页向导](../atl/reference/atl-property-page-wizard.md)来生成属性页。 为属性页命名“DocProperties”  作为“短名称”  ，然后切换到“字符串”  页，以设置属性页专用项，如下表所示。
 
 |项|值|
 |----------|-----------|
@@ -60,7 +60,7 @@ ATL 属性页向导不适用于 Visual Studio 2019 及更高版本。
 > [!NOTE]
 > 此处设置的字符串由向导存储为项目中的字符串资源。 如果需要在生成属性页代码后更改此信息，可以使用资源编辑器轻松编辑这些字符串。
 
-单击“确定”****，让向导生成属性页。
+单击“确定”  ，让向导生成属性页。
 
 ## <a name="editing-the-dialog-resource"></a><a name="vcconediting_the_dialog_resource"></a> 编辑对话框资源
 
@@ -79,7 +79,7 @@ ATL 属性页向导不适用于 Visual Studio 2019 及更高版本。
 
 [!code-cpp[NVC_ATL_Windowing#73](../atl/codesnippet/cpp/example-implementing-a-property-page_1.h)]
 
-此代码通过调用 [IPropertyPageImpl::SetDirty](../atl/reference/ipropertypageimpl-class.md#setdirty) 来通知属性页网站属性页已更改，从而响应编辑控件或复选框的更改。 属性页网站的响应方式通常为，在属性页框架上启用或禁用“应用”**** 按钮。
+此代码通过调用 [IPropertyPageImpl::SetDirty](../atl/reference/ipropertypageimpl-class.md#setdirty) 来通知属性页网站属性页已更改，从而响应编辑控件或复选框的更改。 属性页网站的响应方式通常为，在属性页框架上启用或禁用“应用”  按钮。
 
 > [!NOTE]
 > 在你自己的属性页中，你可能需要精确跟踪用户更改了哪些属性，以免更新尚未更改的属性。 此示例实现了相应代码，具体方式为跟踪原始属性值，并将它们与应用更改后 UI 中的当前值进行比较。
@@ -135,12 +135,12 @@ ATL 属性页向导不适用于 Visual Studio 2019 及更高版本。
 
 使用[“添加类”对话框](../ide/adding-a-class-visual-cpp.md#add-class-dialog-box)和 [ATL 简单对象向导](../atl/reference/atl-simple-object-wizard.md)来生成新类，并使用“`Helper`”作为它的短名称。 创建类后，立即添加如下表所示的方法。
 
-|项|值|
+|项|“值”|
 |----------|-----------|
 |方法名|`ShowPage`|
 |参数|`[in] BSTR bstrCaption, [in] BSTR bstrID, [in] IUnknown* pUnk`|
 
-bstrCaption** 参数是要显示为对话框标题的描述文字。 bstrID** 参数是表示要显示的属性页的 CLSID 或编程 ID 的字符串。 pUnk** 参数是属性由属性页配置的对象的 `IUnknown` 指针。
+bstrCaption  参数是要显示为对话框标题的描述文字。 bstrID  参数是表示要显示的属性页的 CLSID 或编程 ID 的字符串。 pUnk  参数是属性由属性页配置的对象的 `IUnknown` 指针。
 
 按如下所示实现方法：
 
@@ -148,7 +148,7 @@ bstrCaption** 参数是要显示为对话框标题的描述文字。 bstrID** �
 
 ## <a name="creating-a-macro"></a><a name="vcconcreating_a_macro"></a> 创建宏
 
-生成项目后，便能使用简单的宏来测试属性页和帮助程序对象，此宏可以在 Visual Studio 开发环境中创建和运行。 此宏创建帮助程序对象，然后使用 DocProperties**** 属性页的编程 ID 和 Visual Studio 编辑器中当前活动文档的 `IUnknown` 指针来调用它的 `ShowPage` 方法。 此宏所需的代码如下所示：
+生成项目后，便能使用简单的宏来测试属性页和帮助程序对象，此宏可以在 Visual Studio 开发环境中创建和运行。 此宏创建帮助程序对象，然后使用 DocProperties  属性页的编程 ID 和 Visual Studio 编辑器中当前活动文档的 `IUnknown` 指针来调用它的 `ShowPage` 方法。 此宏所需的代码如下所示：
 
 ```vb
 Imports EnvDTE

@@ -1,19 +1,19 @@
 ---
-title: 如何：定义移动构造函数和移动赋值运算符（c + +）
+title: '如何：定义移动构造函数和移动赋值运算符 (c + +) '
 ms.date: 03/05/2018
 helpviewer_keywords:
 - move constructor [C++]
 ms.assetid: e75efe0e-4b74-47a9-96ed-4e83cfc4378d
-ms.openlocfilehash: 2c8fed15787ec4b347694d8c4e40bf7912f3421d
-ms.sourcegitcommit: d4da3693f83a24f840e320e35c24a4a07cae68e2
+ms.openlocfilehash: e57f67eeca93572b26ee03033cbe4dcf90431f78
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550766"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008875"
 ---
 # <a name="move-constructors-and-move-assignment-operators-c"></a>移动构造函数和移动赋值运算符 (C++)
 
-本主题介绍如何为 c + + 类编写*移动构造函数*和移动赋值运算符。 移动构造函数允许将右值对象拥有的资源移到左值，而无需复制。 有关移动语义的详细信息，请参阅[右值引用声明符：  &&](../cpp/rvalue-reference-declarator-amp-amp.md)。
+本主题介绍如何为 c + + 类编写 *移动构造函数* 和移动赋值运算符。 移动构造函数允许将右值对象拥有的资源移到左值，而无需复制。 有关移动语义的详细信息，请参阅 [右值引用声明符：  &&](../cpp/rvalue-reference-declarator-amp-amp.md)。
 
 此主题基于用于管理内存缓冲区的 C++ 类 `MemoryBlock`。
 
@@ -168,7 +168,7 @@ private:
     return *this;
     ```
 
-## <a name="example"></a>示例
+## <a name="example-complete-move-constructor-and-assignment-operator"></a>示例：完成移动构造函数和赋值运算符
 
 以下示例显示了 `MemoryBlock` 类的完整移动构造函数和移动赋值运算符：
 
@@ -217,7 +217,7 @@ MemoryBlock& operator=(MemoryBlock&& other) noexcept
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-use-move-semantics-to-improve-performance"></a>示例使用移动语义提高性能
 
 以下示例演示移动语义如何能提高应用程序的性能。 此示例将两个元素添加到一个矢量对象，然后在两个现有元素之间插入一个新元素。 `vector`类使用移动语义，通过移动矢量的元素而不是复制矢量来有效地执行插入操作。
 
@@ -309,7 +309,7 @@ MemoryBlock(MemoryBlock&& other) noexcept
 
 [Std：： move](../standard-library/utility-functions.md#move)函数将 lvalue 转换 `other` 为右值。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [ 引用声明符：&&](../cpp/rvalue-reference-declarator-amp-amp.md)<br/>
 [std：： move](../standard-library/utility-functions.md#move)

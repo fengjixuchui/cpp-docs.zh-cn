@@ -1,23 +1,24 @@
 ---
-title: 编译器警告（等级3） C4316
+title: 编译器警告 (等级 3) C4316
+description: C + + 编译器警告 C4316 说明
 ms.date: 11/04/2016
 f1_keywords:
 - C4316
 helpviewer_keywords:
 - C4316
 ms.assetid: 10371f01-aeb8-40ac-a290-59e63efa5ad4
-ms.openlocfilehash: 0d920cb3dc967854d1a507d06ce31fde6a670434
-ms.sourcegitcommit: 857fa6b530224fa6c18675138043aba9aa0619fb
+ms.openlocfilehash: 3cb512aa9b851f3b3b26f7a50854a4d887087e81
+ms.sourcegitcommit: 8caaf5e00aeb727741a273aecafa15de293426cf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80198843"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91806548"
 ---
-# <a name="compiler-warning-level-3-c4316"></a>编译器警告（等级3） C4316
+# <a name="compiler-warning-level-3-c4316"></a>编译器警告 (等级 3) C4316
 
 堆上分配的对象可能不会与此类型对齐。
 
-使用 `operator new` 分配的对齐对象可能没有指定的对齐方式。 为过度对齐的类型重写[运算符 new](../../c-runtime-library/operator-new-crt.md)和[operator delete](../../c-runtime-library/operator-delete-crt.md) ，以便它们使用对齐的分配例程（例如[_aligned_malloc](../../c-runtime-library/reference/aligned-malloc.md)和[_aligned_free](../../c-runtime-library/reference/aligned-free.md)）。 下面的示例生成 C4316：
+使用分配的过度对齐的对象 `operator new` 可能没有指定的对齐方式。 为过度对齐的类型重写 [运算符 new](../../c-runtime-library/new-operator-crt.md) 和 [operator delete](../../c-runtime-library/delete-operator-crt.md) ，以便它们使用对齐的分配例程（例如 [_aligned_malloc](../../c-runtime-library/reference/aligned-malloc.md) 和 [_aligned_free](../../c-runtime-library/reference/aligned-free.md)）。 下面的示例生成 C4316：
 
 ```cpp
 // C4316.cpp

@@ -4,24 +4,24 @@ ms.date: 08/19/2019
 helpviewer_keywords:
 - OLE DB consumers, implementing
 ms.assetid: 13828167-23a4-4e94-8b6c-878262fda464
-ms.openlocfilehash: 9e93b40313a215dfe5872b33dc7d41641204a2f1
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: 2d59989f8afd180b39153eed1ad0a20435aad9d4
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91508977"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92923905"
 ---
 # <a name="implementing-a-simple-consumer"></a>实现简单使用者
 
-::: moniker range="vs-2019"
+::: moniker range="msvc-160"
 
 ATL OLE DB 使用者向导不适用于 Visual Studio 2019 及更高版本。 但仍可以手动添加此功能。 有关详细信息，请参阅[不使用向导创建使用者](creating-a-consumer-without-using-a-wizard.md)。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
-下面各主题介绍了如何通过编辑 MFC 应用程序向导**** 和 ATL OLE DB 使用者向导**** 创建的文件来创建简单使用者。 此示例包含以下部分：
+下面各主题介绍了如何通过编辑 MFC 应用程序向导  和 ATL OLE DB 使用者向导  创建的文件来创建简单使用者。 此示例包含以下部分：
 
 - [通过使用者检索数据](#retrieve)展示了如何在使用者中实现从数据库表中逐行读取所有数据的代码。
 
@@ -89,7 +89,7 @@ ATL OLE DB 使用者向导不适用于 Visual Studio 2019 及更高版本。 但
 
 ### <a name="to-instantiate-the-bookmark"></a>实例化书签的具体步骤
 
-1. 取值函数需要保留 [CBookmark](../../data/oledb/cbookmark-class.md) 类型的对象。 nSize** 参数以字节为单位指定书签缓冲区的大小（对于 32 位平台，通常为 4 字节；对于 64 位平台，通常为 8 字节）。 将以下声明添加到用户记录类中的列数据成员：
+1. 取值函数需要保留 [CBookmark](../../data/oledb/cbookmark-class.md) 类型的对象。 nSize  参数以字节为单位指定书签缓冲区的大小（对于 32 位平台，通常为 4 字节；对于 64 位平台，通常为 8 字节）。 将以下声明添加到用户记录类中的列数据成员：
 
     ```cpp
     //////////////////////////////////////////////////////////////////////

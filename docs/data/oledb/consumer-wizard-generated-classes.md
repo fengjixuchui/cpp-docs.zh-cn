@@ -4,28 +4,28 @@ ms.date: 05/09/2019
 helpviewer_keywords:
 - user record classes in OLE DB consumer
 ms.assetid: dba0538f-2afe-4354-8cbb-f202ea8ade5a
-ms.openlocfilehash: 80a43446f0367acb89a04fdaa8198b5cff5a6697
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: 5c8a975b2f4a8ae3285f035e7b708c5026f5f480
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91500964"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924593"
 ---
 # <a name="consumer-wizard-generated-classes"></a>使用者向导生成的类
 
-::: moniker range="vs-2019"
+::: moniker range="msvc-160"
 
 ATL OLE DB 使用者向导不适用于 Visual Studio 2019 及更高版本。 但仍可以手动添加此功能。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
-使用 ATL OLE DB 使用者向导**** 生成使用者时，可以选择是使用 OLE DB 模板，还是使用 OLE DB 特性。 在这两种情况下，向导将分别生成命令类和用户记录类。 命令类包含用于打开在向导中指定的数据源和行集的代码。 用户记录类包含选定数据库表的列映射。 但是，这两种情况下生成的代码各不相同：
+使用 ATL OLE DB 使用者向导  生成使用者时，可以选择是使用 OLE DB 模板，还是使用 OLE DB 特性。 在这两种情况下，向导将分别生成命令类和用户记录类。 命令类包含用于打开在向导中指定的数据源和行集的代码。 用户记录类包含选定数据库表的列映射。 但是，这两种情况下生成的代码各不相同：
 
-- 如果选择模板化使用者，则向导将生成命令类和用户记录类。 命令类以你在向导的“类”**** 框中输入的名称命名（例如，`CProducts`），用户记录类采用“ClassName** Accessor”格式的名称（例如，`CProductsAccessor`）。 这两个类都位于使用者的头文件中。
+- 如果选择模板化使用者，则向导将生成命令类和用户记录类。 命令类以你在向导的“类”  框中输入的名称命名（例如，`CProducts`），用户记录类采用“ClassName  Accessor”格式的名称（例如，`CProductsAccessor`）。 这两个类都位于使用者的头文件中。
 
-- 如果选择属性化使用者，则用户记录类将具有“_*类名*Accessor”格式的名称，并将插入。 也就是说，只能在文本编辑器中查看命令类，并只能以插入代码的形式查看用户记录类。 有关查看插入代码的信息，请参阅 [调试插入代码](/visualstudio/debugger/how-to-debug-injected-code)。
+- 如果选择属性化使用者，则用户记录类将具有“_ *类名* Accessor”格式的名称，并将插入。 也就是说，只能在文本编辑器中查看命令类，并只能以插入代码的形式查看用户记录类。 有关查看插入代码的信息，请参阅 [调试插入代码](/visualstudio/debugger/how-to-debug-injected-code)。
 
 下面的示例使用对 `Northwind` 数据库的 `Products` 表创建的命令类，展示了用于命令类和用户记录类的向导生成的使用者代码。
 
@@ -88,7 +88,7 @@ public:
 
 ### <a name="rowset-properties"></a>行集属性
 
-接下来，向导将设置行集属性。 如果在 ATL OLE DB 使用者向导中选择了“更改” ****、“插入” **** 或“删除” **** ，则此时将设置相应的属性（将始终设置 DBPROP_IRowsetChange，然后将分别设置 DBPROPVAL_UP_CHANGE、DBPROPVAL_UP_INSERT 和/或 DBPROPVAL_UP_DELETE 中的一个或多个）。
+接下来，向导将设置行集属性。 如果在 ATL OLE DB 使用者向导中选择了“更改”  、“插入”  或“删除”  ，则此时将设置相应的属性（将始终设置 DBPROP_IRowsetChange，然后将分别设置 DBPROPVAL_UP_CHANGE、DBPROPVAL_UP_INSERT 和/或 DBPROPVAL_UP_DELETE 中的一个或多个）。
 
 ```cpp
 void GetRowsetProperties(CDBPropSet* pPropSet)
@@ -150,7 +150,7 @@ class CProducts : public CCommand<CAccessor<CProductsAccessor>>
 
 ## <a name="attribute-injected-user-record-classes"></a>属性插入的用户记录类
 
-如果使用数据库属性（[db_command](../../windows/attributes/db-command.md) 或 [db_table](../../windows/attributes/db-table.md)）创建 OLE DB 使用者，属性将插入一个名称为“_*类名*Accessor”格式的用户记录类。 例如，如果将命令类命名为 `COrders`，用户记录类将为 `_COrdersAccessor`。 虽然用户记录类显示在“类视图”**** 中，但双击它会改为转到头文件中的命令类或表类。 在这些情况下，只能通过查看属性插入的代码来查看用户记录类的实际声明。
+如果使用数据库属性（ [db_command](../../windows/attributes/db-command.md) 或 [db_table](../../windows/attributes/db-table.md)）创建 OLE DB 使用者，属性将插入一个名称为“_ *类名* Accessor”格式的用户记录类。 例如，如果将命令类命名为 `COrders`，用户记录类将为 `_COrdersAccessor`。 虽然用户记录类显示在“类视图”  中，但双击它会改为转到头文件中的命令类或表类。 在这些情况下，只能通过查看属性插入的代码来查看用户记录类的实际声明。
 
 如果在属性化使用者中添加或重写方法，可能会出现问题。 例如，可以将 `_COrdersAccessor` 构造函数添加到 `COrders` 声明中，但请注意，实际上这一操作将构造函数添加到了插入的 `COrdersAccessor` 类中。 此类构造函数可以初始化列/参数，但你无法通过这种方式创建复制构造函数，因为它无法直接实例化 `COrdersAccessor` 对象。 如果需要直接位于 `COrders` 类上的构造函数（或其他方法），建议定义派生自 `COrders` 的新类，并将所需的方法添加到其中。
 

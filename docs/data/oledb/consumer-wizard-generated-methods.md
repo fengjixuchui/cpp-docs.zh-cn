@@ -4,24 +4,24 @@ ms.date: 05/09/2019
 helpviewer_keywords:
 - OLE DB consumers, wizard-generated classes and methods
 ms.assetid: d80ee51c-8bb3-4dca-8760-5808e0fb47b4
-ms.openlocfilehash: f3bcc799f2a9591cfe7b2fc364b03161b5c0da33
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: 15d41aabee174a409ad11e4422292bcea5f10bbf
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91500702"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92919119"
 ---
 # <a name="consumer-wizard-generated-methods"></a>使用者向导生成的方法
 
-::: moniker range="vs-2019"
+::: moniker range="msvc-160"
 
 ATL OLE DB 使用者向导不适用于 Visual Studio 2019 及更高版本。 但仍可以手动添加此功能。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
-ATL OLE DB 使用者向导**** 和 MFC 应用程序向导**** 生成一些你应该知道的函数。 由于一些方法在特性化项目中以不同方式实现，因此有几点注意事项；下面分别介绍了每种情况。 有关查看插入代码的信息，请参阅 [调试插入代码](/visualstudio/debugger/how-to-debug-injected-code)。
+ATL OLE DB 使用者向导  和 MFC 应用程序向导  生成一些你应该知道的函数。 由于一些方法在特性化项目中以不同方式实现，因此有几点注意事项；下面分别介绍了每种情况。 有关查看插入代码的信息，请参阅 [调试插入代码](/visualstudio/debugger/how-to-debug-injected-code)。
 
 - `OpenAll` 打开数据源、行集，并在书签可用时启用书签。
 
@@ -31,7 +31,7 @@ ATL OLE DB 使用者向导**** 和 MFC 应用程序向导**** 生成一些你应
 
 - `GetRowsetProperties` 检索指向行集的属性集的指针，此指针可用于设置属性。
 
-- `OpenDataSource` 使用“数据链接属性”**** 对话框中指定的初始化字符串打开数据源。
+- `OpenDataSource` 使用“数据链接属性”  对话框中指定的初始化字符串打开数据源。
 
 - `CloseDataSource` 以适当方式关闭数据源。
 

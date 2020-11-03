@@ -2,12 +2,12 @@
 title: 在 Visual Studio 中配置 Linux CMake 项目
 description: 如何在 Visual Studio 中配置 Linux CMake 设置
 ms.date: 08/08/2020
-ms.openlocfilehash: 4bc6d5d82a0f1cd21e8f989eb92b431d38b2bf5c
-ms.sourcegitcommit: 111ee74772d7f308d3414b5d42cbc1e90287f081
+ms.openlocfilehash: 32c851791402b59c941ae088fa637d3d9953dd1b
+ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659339"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91504729"
 ---
 # <a name="configure-a-linux-cmake-project-in-visual-studio"></a>在 Visual Studio 中配置 Linux CMake 项目
 
@@ -53,6 +53,7 @@ Visual Studio 2017（以及 Visual Studio 2019 版本 16.0）中 Linux-Debug 的
       "inheritEnvironments": [ "linux-x64" ]
 }
 ```
+
 ::: moniker-end
 
 ::: moniker range="vs-2019"
@@ -97,12 +98,13 @@ Visual Studio 2019 版本 16.1 中的默认 Linux 调试配置如下所示：
 有关这些设置的详细信息，请参阅 [CMakeSettings.json 引用](../build/cmakesettings-reference.md)。
 
 执行生成时：
+
 - 如果以远程系统为目标，Visual Studio 将为远程目标默认选择“工具”>“选项”>“跨平台”>“连接管理器”下列表中的第一个远程系统。
 - 如果未找到任何远程连接，那么系统会提示你进行创建。 有关详细信息，请参阅[连接到远程 Linux 计算机](connect-to-your-remote-linux-computer.md)。
 
 ## <a name="choose-a-linux-target"></a>选择 Linux 目标
 
-打开 CMake 项目文件夹时，Visual Studio 会分析 CMakeLists.txt 文件，并指定 Windows 目标“x86-Debug”。 要以远程 Linux 系统为目标，请将项目设置更改为“Linux-Debug”或“Linux-Release”。
+打开 CMake 项目文件夹时，Visual Studio 会分析 CMakeLists.txt 文件，并指定 Windows 目标“x86-Debug”。 要以远程 Linux 系统为目标，请根据 Linux 编译器更改项目设置。 例如，如果在 Linux 上使用 GCC 并使用调试信息进行编译，则选择：Linux-GCC-Debug 或 Linux-GCC-Release。
 
 如果指定远程 Linux 目标，则会将源复制到远程系统。
 
@@ -117,7 +119,15 @@ Visual Studio 2019 版本 16.1 中的默认 Linux 调试配置如下所示：
 
 如果以适用于 Linux 的 Windows 子系统 (WSL) 为目标，则无需添加远程连接。
 
-若要以 WSL 为目标，请选择主工具栏配置下拉列表中的“管理配置”。 如果使用 GCC，请按“添加配置”按钮，选择“WSL-Debug”或“WSL-Release”。 如果使用 Clang/LLVM 工具集，则选择 Clang 变体。
+若要以 WSL 为目标，请选择主工具栏配置下拉列表中的“管理配置”：
+
+![CMake 管理配置](../build/media/vs2019-cmake-manage-configurations.png "CMake 配置下拉列表")
+
+此时将显示“CMakeSettings.json”窗口。
+
+![添加配置](media/cmake-linux-configurations.png "向 CMake 设置中添加配置")
+
+按“添加配置”（绿色的 "+" 按钮），然后选择“Linux-GCC-Debug”或（如果使用 GCC）“Linux-GCC-Release”。 如果使用 Clang/LLVM 工具集，则选择 Clang 变体。  按“选择”，然后按 Ctrl+S 以保存配置。
 
 Visual Studio 2019 版本 16.1 以 WSL 为目标时，Visual Studio 不需要复制源文件和维护生成树的两个同步副本，因为 Linux 上的编译器可以直接访问已装入的 Windows 文件系统中的源文件。
 ::: moniker-end

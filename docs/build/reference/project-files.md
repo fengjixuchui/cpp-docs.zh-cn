@@ -5,33 +5,33 @@ helpviewer_keywords:
 - .vcxproj files
 - C++ projects, project file format
 ms.assetid: 5261cf45-3136-40a6-899e-dc1339551401
-ms.openlocfilehash: 97224380a591f4fa3fe23d25a898c112702f5a5c
-ms.sourcegitcommit: 8e285a766523e653aeeb34d412dc6f615ef7b17b
+ms.openlocfilehash: eef28961ab8c4d3a34a74999c7e0c69a4fc3fced
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80078305"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924008"
 ---
 # <a name="project-files"></a>项目文件
 
-Visual C++ Studio 中的项目文件是基于 XML 的文件，其文件扩展名为 .vcxproj，包含生成C++项目所需的信息。 请注意，项目文件将导入具有 ". 属性" 或 ".targets" 扩展名的各种项目文件。 这些文件包含其他生成信息，并且可能会引用其他 "属性" 或 ".targets" 文件。 文件路径中的宏（例如 `$(VCTargetsPath)`）取决于安装的 Visual Studio。 有关这些宏和 ". 属性" 和 ".targets" 文件的详细信息，请参阅 " [VC + + 目录" 属性页](vcpp-directories-property-page.md)，[在 Visual Studio 中设置C++编译器和生成属性](../working-with-project-properties.md)和[生成命令和属性的常见宏](common-macros-for-build-commands-and-properties.md)。
+Visual Studio 中的 c + + 项目文件是基于 XML 的文件，其文件扩展名为 .vcxproj，包含生成 c + + 项目所需的信息。 请注意，项目文件将导入具有 ". 属性" 或 ".targets" 扩展名的各种项目文件。 这些文件包含其他生成信息，并且可能会引用其他 "属性" 或 ".targets" 文件。 文件路径中的宏（例如 `$(VCTargetsPath)`）取决于安装的 Visual Studio。 有关这些宏和 ". 属性" 和 ".targets" 文件的详细信息，请参阅 " [VC + + 目录" 属性页](vcpp-directories-property-page.md)、 [设置 c + + 编译器和在 Visual Studio 中生成属性](../working-with-project-properties.md) 和 [生成命令和属性的常见宏](common-macros-for-build-commands-and-properties.md)。
 
 ## <a name="example"></a>示例
 
-::: moniker range=">=vs-2019"
+::: moniker range=">=msvc-160"
 
-下面的 .vcxproj 文件是通过在 "**新建项目**" 对话框中选择 " **Windows 桌面向导**" 生成的。 要处理项目文件，请在命令行处使用 msbuild.exe 工具或使用 IDE 中的“生成”命令。 （无法处理此示例，因为未提供所需的源文件和头文件。）有关项目文件中的 XML 元素的详细信息，请参阅[项目文件架构参考](/visualstudio/msbuild/msbuild-project-file-schema-reference)。
+下面的 .vcxproj 文件是通过在 " **新建项目** " 对话框中选择 " **Windows 桌面向导** " 生成的。 要处理项目文件，请在命令行处使用 msbuild.exe 工具或使用 IDE 中的“生成”命令  。  (无法处理此示例，因为未提供所需的源文件和头文件。 ) 有关项目文件中的 XML 元素的详细信息，请参阅 [项目文件架构参考](/visualstudio/msbuild/msbuild-project-file-schema-reference)。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
-以下示例 .vcxproj 文件是由在“新建项目”对话框中指定“Win32 控制台应用程序”而生成的。 要处理项目文件，请在命令行处使用 msbuild.exe 工具或使用 IDE 中的“生成”命令。 （无法处理此示例，因为未提供所需的源文件和头文件。）有关项目文件中的 XML 元素的详细信息，请参阅[项目文件架构参考](/visualstudio/msbuild/msbuild-project-file-schema-reference)。
+以下示例 .vcxproj 文件是由在“新建项目”对话框中指定“Win32 控制台应用程序”而生成的  。 要处理项目文件，请在命令行处使用 msbuild.exe 工具或使用 IDE 中的“生成”命令  。  (无法处理此示例，因为未提供所需的源文件和头文件。 ) 有关项目文件中的 XML 元素的详细信息，请参阅 [项目文件架构参考](/visualstudio/msbuild/msbuild-project-file-schema-reference)。
 
 ::: moniker-end
 
 >[!NOTE]
-> 对于 Visual Studio 2017 及更早版本中的项目，请将 `pch.h` 更改为 `stdafx.h` 并 `pch.cpp` `stdafx.cpp`。
+> 对于 Visual Studio 2017 及更早版本中的项目，请将更改 `pch.h` 为 `stdafx.h` 和 `pch.cpp` `stdafx.cpp` 。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -131,7 +131,7 @@ Visual C++ Studio 中的项目文件是基于 XML 的文件，其文件扩展名
 </Project>
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [Visual Studio 项目 - C++](../creating-and-managing-visual-cpp-projects.md)<br>
 [在 Visual Studio 中设置 C++ 编译器并生成属性](../working-with-project-properties.md)

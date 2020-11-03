@@ -5,11 +5,11 @@ helpviewer_keywords:
 - Concurrency Runtime, compared to other models
 ms.assetid: d8b9a1f4-f15f-43c3-a5b4-c0991edf9c86
 ms.openlocfilehash: 5bc6691f6d0b166bb3084091ee6af70474937568
-ms.sourcegitcommit: 7ecd91d8ce18088a956917cdaf3a3565bd128510
+ms.sourcegitcommit: 19016630f9d35f365e9ba249e0f3617515d7ca33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79427469"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92274698"
 ---
 # <a name="comparing-the-concurrency-runtime-to-other-concurrency-models"></a>将并发运行时与其他并发模型进行比较
 
@@ -19,21 +19,21 @@ ms.locfileid: "79427469"
 
 可以使用并发运行时的功能和工作效率的优势来补充使用另一种并发模型的现有应用程序。 多个任务计划程序争夺同一计算资源时，并发运行时无法保证负载平衡。 但是，工作负载不重叠时，这种影响非常小。
 
-## <a name="top"></a> 部分
+## <a name="sections"></a><a name="top"></a> 个
 
 - [比较抢先式计划与协作式计划](#models)
 
-- [比较并发运行时与 Windows API](#winapi)
+- [将并发运行时与 Windows API 进行比较](#winapi)
 
-- [比较并发运行时与 OpenMP](#openmp)
+- [将并发运行时与 OpenMP 进行比较](#openmp)
 
-## <a name="models"></a>比较抢先式计划与协作式计划
+## <a name="comparing-preemptive-scheduling-to-cooperative-scheduling"></a><a name="models"></a>比较抢先式计划与协作式计划
 
 抢先式模型和协作式计划模型是启用多任务以共享计算资源的两种常用方式，例如，处理器或硬件线程。
 
 ### <a name="preemptive-and-cooperative-scheduling"></a>抢先式和协作式计划
 
-*抢先式计划* 是一种基于优先级的轮循机制，它在给定时间内为每个任务提供单独访问计算资源的权限，并在之后切换到其他任务。 抢先式计划在多任务操作系统（例如 Windows）中很常见。 *协作式计划*是一种机制，它为每个任务提供对计算资源的独占访问权限，直到任务完成或任务生成对资源的访问权限为止。 并发运行时将操作系统的抢先式计划程序与协作式计划配合使用，以达到处理资源的最大使用率。
+*抢先式计划* 是一种基于优先级的轮循机制，它在给定时间内为每个任务提供单独访问计算资源的权限，并在之后切换到其他任务。 抢先式计划在多任务操作系统（例如 Windows）中很常见。 *协作式计划* 是一种机制，它为每个任务提供对计算资源的独占访问权限，直到任务完成或任务生成对资源的访问权限为止。 并发运行时将操作系统的抢先式计划程序与协作式计划配合使用，以达到处理资源的最大使用率。
 
 ### <a name="differences-between-preemptive-and-cooperative-schedulers"></a>抢先式和协作式计划程序之间的差异
 
@@ -49,9 +49,9 @@ ms.locfileid: "79427469"
 
 协作式计划无法解决所有计划问题。 例如，没有公平地为其他任务让行的任务会消耗所有可用计算资源并阻止其他任务取得进展。 并发运行时使用协作式计划的高效优势来补充抢先式计划的公平性保证。 默认情况下，并发运行时提供一个协作计划程序，该计划程序使用工作窃取算法在计算资源之间高效地分配工作。 但是，并发运行时计划程序还依赖于操作系统的抢先式计划程序，以便在应用程序之间公平地分配资源。 还可以在应用程序中创建自定义计划程序和计划程序策略来对线程执行进行精细控制。
 
-[[返回页首](#top)]
+[[顶部](#top)]
 
-## <a name="winapi"></a> 比较并发运行时与 Windows API
+## <a name="comparing-the-concurrency-runtime-to-the-windows-api"></a><a name="winapi"></a> 比较并发运行时与 Windows API
 
 Microsoft Windows 应用程序编程接口（通常称为 Windows API，以前称为 Win32）提供了在应用程序中启用并发的编程模型。 并发运行时基于 Windows API 生成，以提供无法从基础操作系统中获得的其他编程模型。
 
@@ -79,9 +79,9 @@ Windows API 中的中心并发机制是线程。 通常使用 [CreateThread](/wi
 
 [base.user-mode_scheduling](/windows/win32/procthread/user-mode-scheduling)
 
-[[返回页首](#top)]
+[[顶部](#top)]
 
-## <a name="openmp"></a> 比较并发运行时与 OpenMP
+## <a name="comparing-the-concurrency-runtime-to-openmp"></a><a name="openmp"></a> 比较并发运行时与 OpenMP
 
 并发运行时支持各种编程模型。 这些模型可能会与其他库的模型重叠或对其进行补充。 本部分将并发运行时与 [OpenMP](../../parallel/concrt/comparing-the-concurrency-runtime-to-other-concurrency-models.md#openmp) 进行比较。
 
@@ -93,12 +93,12 @@ OpenMP 编程模型由开放标准定义，具有与 Fortran 和 C/C++ 编程语
 
 有关将并发运行时与 OpenMP 进行比较，以及如何迁移现有 OpenMP 代码以使用并发运行时的详细信息，请参阅 [Migrating from OpenMP to the Concurrency Runtime](../../parallel/concrt/migrating-from-openmp-to-the-concurrency-runtime.md)。
 
-[[返回页首](#top)]
+[[顶部](#top)]
 
 ## <a name="see-also"></a>另请参阅
 
 [并发运行时](../../parallel/concrt/concurrency-runtime.md)<br/>
-[概述](../../parallel/concrt/asynchronous-message-blocks.md)<br/>
+概述<br/>
 [并行模式库 (PPL)](../../parallel/concrt/parallel-patterns-library-ppl.md)<br/>
 [异步代理库](../../parallel/concrt/asynchronous-agents-library.md)<br/>
 [OpenMP](../../parallel/concrt/comparing-the-concurrency-runtime-to-other-concurrency-models.md#openmp)

@@ -39,12 +39,12 @@ helpviewer_keywords:
 - operator<= member [STL/CLR]
 - operator< member [STL/CLR]
 ms.assetid: fb48cb75-d5ef-47ce-b526-bf60dc86c552
-ms.openlocfilehash: 271bc01f5c8fd9dd07bfa03035ae3d0204ebd8e7
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: faf7f607f9433fa3e4813957b24220a5e66e1e49
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91500594"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008617"
 ---
 # <a name="utility-stlclr"></a>utility (STL/CLR)
 
@@ -81,8 +81,6 @@ ms.locfileid: "91500594"
 |--------------|-----------------|
 |[make_pair (STL/CLR)](#make_pair)|从一对值进行配对。|
 
-## <a name="members"></a>成员
-
 ## <a name="pair-stlclr"></a><a name="pair"></a> 配对 (STL/CLR) 
 
 此模板类描述包装值对的对象。
@@ -95,7 +93,7 @@ template<typename Value1,
     ref class pair;
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *Value1*<br/>
 第一个已包装值的类型。
@@ -124,7 +122,7 @@ template<typename Value1,
 |--------------|-----------------|
 |[pair::operator= (STL/CLR)](#op_as)|替换存储的值对。|
 
-## <a name="remarks"></a>注解
+## <a name="remarks"></a>备注
 
 对象存储一对值。 使用此模板类将两个值组合到单个对象中。 此外， `cliext::pair` 此处 (描述的对象) 仅存储托管类型; 用于存储在中声明的一对非托管类型 `std::pair` `<utility>` 。
 
@@ -212,12 +210,12 @@ int main()
 pair<Value1, Value2>% operator=(pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *然后*<br/>
 要复制的配对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 成员运算符 *直接* 复制到对象，然后返回 **`*this`** 。 使用此方法可以将存储的值对替换为 *右侧*存储的值对的副本。
 
@@ -259,7 +257,7 @@ pair(pair<Coll>^ right);
 pair(Value1 val1, Value2 val2);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *然后*<br/>
 要存储的配对。
@@ -270,7 +268,7 @@ pair(Value1 val1, Value2 val2);
 *val2*<br/>
 要存储的第二个值。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 构造函数：
 
@@ -415,12 +413,12 @@ int main()
 void swap(pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *然后*<br/>
 要与其交换内容的配对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 成员函数交换和右之间存储的值对 **`*this`** 。 *right*
 
@@ -486,7 +484,7 @@ template<typename Value1,
     pair<Value1, Value2> make_pair(Value1 first, Value2 second);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *Value1*<br/>
 第一个已包装值的类型。
@@ -500,7 +498,7 @@ template<typename Value1,
 second <br/>
 要换行的第二个值。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 此模板函数返回 `pair<Value1, Value2>(first, second)`。 使用此方法可以构造 `pair<Value1, Value2>` 值对中的对象。
 
@@ -540,7 +538,7 @@ template<typename Value1,
         pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *左中*<br/>
 要比较的左对。
@@ -548,7 +546,7 @@ template<typename Value1,
 *然后*<br/>
 要比较的右对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 Operator 函数返回 `!(left == right)` 。 使用此方法可以测试在按元素对两对进行比较*时，* 是否不向*左*排序。
 
@@ -594,7 +592,7 @@ template<typename Value1,
         pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *左中*<br/>
 要比较的左对。
@@ -602,7 +600,7 @@ template<typename Value1,
 *然后*<br/>
 要比较的右对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 Operator 函数返回 `left.first <` `right.first || !(right.first <` `left.first &&` `left.second <` `right.second` 。 用于测试在按元素对两*对进行比较时，是否向**右端*排序。
 
@@ -648,7 +646,7 @@ template<typename Value1,
         pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *左中*<br/>
 要比较的左对。
@@ -656,7 +654,7 @@ template<typename Value1,
 *然后*<br/>
 要比较的右对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 Operator 函数返回 `!(right < left)` 。 用于测试在按元素对两对进行*比较时，是否向**左*排序。
 
@@ -702,7 +700,7 @@ template<typename Value1,
         pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *左中*<br/>
 要比较的左对。
@@ -710,7 +708,7 @@ template<typename Value1,
 *然后*<br/>
 要比较的右对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 Operator 函数返回 `left.first ==` `right.first &&` `left.second ==` `right.second` 。 使用此方法可以测试在按元素对两对进行*比较时，* 是否*向左*排序。
 
@@ -756,7 +754,7 @@ template<typename Value1,
         pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *左中*<br/>
 要比较的左对。
@@ -764,7 +762,7 @@ template<typename Value1,
 *然后*<br/>
 要比较的右对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 Operator 函数返回 `right` `<` `left` 。 用于测试在按元素对两对进行比较*时，是否向**左*排序。
 
@@ -810,7 +808,7 @@ template<typename Value1,
         pair<Value1, Value2>% right);
 ```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
 *左中*<br/>
 要比较的左对。
@@ -818,7 +816,7 @@ template<typename Value1,
 *然后*<br/>
 要比较的右对。
 
-### <a name="remarks"></a>注解
+### <a name="remarks"></a>备注
 
 Operator 函数返回 `!(left < right)` 。 用于测试在按元素对两对进行*比较时，是否向**左*排序。
 

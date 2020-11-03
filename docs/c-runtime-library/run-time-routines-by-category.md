@@ -1,5 +1,6 @@
 ---
 title: 按类别分的通用 C 运行时例程
+description: Microsoft 通用 C 运行时 (UCRT) 库例程按类别列出。
 ms.date: 04/06/2018
 helpviewer_keywords:
 - routines, run-time
@@ -7,16 +8,16 @@ helpviewer_keywords:
 - categories, run-time functions
 - functions [CRT]
 ms.assetid: de6f5ac4-2226-4dad-be9f-deeb31138c9d
-ms.openlocfilehash: be58ce7550c8f15c1c12eafa1dd4187f12fb71cd
-ms.sourcegitcommit: ec6dd97ef3d10b44e0fedaa8e53f41696f49ac7b
+ms.openlocfilehash: 3106c97bfcaf6ed273ba9f826edf7b268fdca782
+ms.sourcegitcommit: 8caaf5e00aeb727741a273aecafa15de293426cf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88846337"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91806534"
 ---
 # <a name="universal-c-runtime-routines-by-category"></a>按类别分的通用 C 运行时例程
 
-本节按类别列出并介绍了通用 C (UCRT) 运行库例程。 为了方便引用，一些例程已在多个类别中列出。 多字节字符例程和宽字符例程在它们存在的位置按单字节字符副本进行分组。
+本部分按类别列出了通用 C 运行时 (UCRT) 库例程。 为了方便引用，一些例程已在多个类别中列出。 多字节字符例程和宽字符例程在它们存在的位置按单字节字符副本进行分组。
 
 ## <a name="ucrt-library-routine-categories"></a>UCRT 库例程类别
 
@@ -52,6 +53,6 @@ UCRT 库例程的主要类别是：
    :::column-end:::
 :::row-end:::
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [C 运行时库参考](../c-runtime-library/c-run-time-library-reference.md)<br/>

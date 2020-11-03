@@ -1,31 +1,31 @@
 ---
 title: C 运行时库参考
 description: Microsoft C 运行时库函数的信息和引用的链接。
-ms.date: 11/04/2016
+ms.date: 10/05/2020
 f1_keywords:
 - c.runtime
 helpviewer_keywords:
 - CRT
-- run-time libraries
+- runtime libraries
 - CRT, reference
 ms.assetid: a503e11c-8dca-4846-84fb-025a826c32b8
-ms.openlocfilehash: 99d8463ddd9dd7b9037cb96e214af7f9581ba074
-ms.sourcegitcommit: 9451db8480992017c46f9d2df23fb17b503bbe74
+ms.openlocfilehash: 2e5fcadca5dcca30370b0f03917650136ab46ee8
+ms.sourcegitcommit: 8caaf5e00aeb727741a273aecafa15de293426cf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91590051"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91806521"
 ---
-# <a name="c-run-time-library-reference"></a>C 运行时库参考
+# <a name="c-runtime-library-reference"></a>C 运行时库引用
 
-Microsoft 运行库为 Microsoft Windows 操作系统的编程提供了例程。 这些例程自动执行许多不采用 C 和 C++ 语言提供的常见编程任务。
+Microsoft 运行时库为 Microsoft Windows 操作系统的编程提供了例程。 这些例程自动执行许多不采用 C 和 C++ 语言提供的常见编程任务。
 
 库中大部分例程的示例程序包含在独立参考主题中。
 
 ## <a name="in-this-section"></a>本节内容
 
 [C 运行时库](crt-library-features.md)\
-讨论比较 C 运行库的 .lib 文件。
+讨论组成 C 运行库的 .lib 文件。
 
 [按类别列出的通用 C 运行时例程](run-time-routines-by-category.md)\
 按类别提供指向运行库的链接。
@@ -39,11 +39,14 @@ Microsoft 运行库为 Microsoft Windows 操作系统的编程提供了例程。
 [全局状态](global-state.md)\
 描述 C 运行时库中的全局状态范围。
 
-[字母函数引用](reference/crt-alphabetical-function-reference.md)\
-提供进入所有 C 运行库函数的按字母顺序的列表的目录入口点。
-
 [一般文本映射](generic-text-mappings.md)\
 提供指向在 Tchar.h 中定义的通用文本映射的链接。
+
+[字母函数引用](reference/crt-alphabetical-function-reference.md)\
+提供指向 C 运行时库函数的链接，按字母顺序排列。
+
+[函数系列概述](function-family-overviews.md)\
+提供指向 C 运行时库函数的链接（按函数系列组织）。
 
 [语言和国家/地区字符串](locale-names-languages-and-country-region-strings.md)\
 介绍如何使用 `setlocale` 函数设置语言和国家/地区字符串。
@@ -56,7 +59,7 @@ Microsoft 运行库为 Microsoft Windows 操作系统的编程提供了例程。
 [运行时错误检查](run-time-error-checking.md)\
 提供指向支持运行时错误检查的函数的链接。
 
-[DLL 和 Visual C++ 运行时库行为](../build/run-time-library-behavior.md)\
+[Dll 和 Visual C++ 运行时库行为](../build/run-time-library-behavior.md)\
 讨论用于 DLL 的入口点和启动代码。
 
 [调试](/visualstudio/debugger/debugging-in-visual-studio)\

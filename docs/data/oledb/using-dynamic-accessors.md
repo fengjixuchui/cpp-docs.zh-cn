@@ -5,12 +5,12 @@ helpviewer_keywords:
 - accessors [C++], dynamic
 - dynamic accessors
 ms.assetid: e5d5bfa6-2b1d-49d0-8ced-914666422431
-ms.openlocfilehash: eea1c6199fed5a4e6e331c1c76f34b96090b709a
-ms.sourcegitcommit: a1676bf6caae05ecd698f26ed80c08828722b237
+ms.openlocfilehash: 4f42d6f20da819cf325cad06a04878b46e52352a
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91509414"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008676"
 ---
 # <a name="using-dynamic-accessors"></a>使用动态访问器
 
@@ -22,7 +22,7 @@ ms.locfileid: "91509414"
 
 当您不知道数据库的基础结构)  (数据库架构时， [CDynamicAccessor](../../data/oledb/cdynamicaccessor-class.md)允许您访问数据源。 `CDynamicAccessor` 方法获取列信息，如列名称、计数和数据类型。 使用此列信息可在运行时动态创建访问器。 列信息存储在由此类创建和管理的缓冲区中。 使用 [GetValue](./cdynamicaccessor-class.md#getvalue) 方法从缓冲区中获取数据。
 
-## <a name="example"></a>示例
+## <a name="example-cdynamic-accessors"></a>示例： CDynamic 访问器
 
 ```cpp
 // Using_Dynamic_Accessors.cpp
@@ -94,7 +94,7 @@ int main(int argc, char* argv[] )
 
 使用 `CDynamicStringAccessor` 方法来获取列信息。 使用此列信息可在运行时动态创建访问器。 列信息存储在由此类创建和管理的缓冲区中。 使用 [CDynamicStringAccessor：： GetString](./cdynamicstringaccessor-class.md#getstring) 从缓冲区中获取数据，或使用 [CDynamicStringAccessor：： SetString](./cdynamicstringaccessor-class.md#setstring)将数据存储到缓冲区。
 
-## <a name="example"></a>示例
+## <a name="example-cdynamicstringaccessor"></a>示例： CDynamicStringAccessor
 
 ```cpp
 // Using_Dynamic_Accessors_b.cpp

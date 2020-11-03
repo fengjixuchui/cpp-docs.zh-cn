@@ -2,21 +2,21 @@
 title: CRT 中的全局状态
 description: 介绍如何在 Microsoft 通用 C 运行时中处理共享的全局状态。
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 10/02/2020
 helpviewer_keywords:
 - CRT global state
-ms.openlocfilehash: 60532fbdb905bd8ea78b4ce705ec8ecc3e374d9d
-ms.sourcegitcommit: 9451db8480992017c46f9d2df23fb17b503bbe74
+ms.openlocfilehash: 6c8b97e2bd6fa71891aedacb1fbfec2bbe382d84
+ms.sourcegitcommit: faedcc3be78b29c78e5d51e3c7c7c2f448c745bf
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91589726"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91717510"
 ---
 # <a name="global-state-in-the-crt"></a>CRT 中的全局状态
 
  (UCRT 的通用 C 运行时中的一些函数) 使用全局状态。 例如， `setlocale()` 设置整个程序的区域设置，它会影响数字分隔符、文本代码页等。
 
-UCRT 的全局状态不会在应用程序和操作系统之间共享。 例如，如果应用程序调用 `setlocale()` ，则不会影响任何使用 C 运行时的操作系统组件的区域设置，反之亦然。
+UCRT 的全局状态不会在应用程序和操作系统之间共享。 例如，如果应用程序调用 `setlocale()` ，则不会影响使用 C 运行时的任何 OS 组件的区域设置，也不会影响其他方法。
 
 ## <a name="os-specific-versions-of-crt-functions"></a>CRT 函数的特定于 OS 的版本
 
@@ -31,8 +31,8 @@ UCRT 的全局状态不会在应用程序和操作系统之间共享。 例如�
 
 可通过两种方法将组件的 CRT 状态与应用的 CRT 状态隔离：
 
-- 使用编译器选项/MT 静态链接组件 (release) 或 MTd (调试) 。 有关详细信息，请参阅 [/md、/mt、/ld](../build/reference/md-mt-ld-use-run-time-library.md)。 请注意，静态链接可以大大增加二进制大小。
-- 从 Windows 10 20H2 开始，通过动态链接到 CRT 来获取 CRT 状态隔离，但调用 OS 模式导出 (以 _o_) 开头的函数。 若要调用 OS 模式导出，请静态地链接到，但使用链接器选项 `/NODEFAULTLIB:libucrt.lib` (release) 或 (调试来忽略静态 UCRT `/NODEFAULTLIB:libucrtd.lib`) 参阅 [/NODEFAULTLIB (忽略库) ](../build/reference/nodefaultlib-ignore-libraries.md) 获取详细信息。 并将添加 `ucrt.osmode.lib` 到链接器输入中。
+- 使用编译器选项 `/MT` (release) 或 `/MTd` (调试) 静态链接组件。 有关详细信息，请参阅 [/md、/mt、/ld](../build/reference/md-mt-ld-use-run-time-library.md)。 静态链接可以大大增加二进制大小。
+- 从 Windows 10 版本2004开始，动态链接到 CRT，但调用 OS 模式导出 (以 _o_) 开头的函数。 若要调用 OS 模式导出，请以静态方式链接到，但使用链接器选项 `/NODEFAULTLIB:libucrt.lib` (release) 或 `/NODEFAULTLIB:libucrtd.lib` (调试) 来忽略静态 UCRT。 并将添加 `ucrt.osmode.lib` 到链接器输入中。 有关详细信息，请参阅 [/NODEFAULTLIB (忽略库) ](../build/reference/nodefaultlib-ignore-libraries.md) 。
 
 > [!Note]
 > 在源代码中，编写 `setlocale()` ，而不是 `_o_setlocale()` 。 当你对进行链接时 `ucrt.osmode.lib` ，链接器将自动替换特定于 OS 的函数版本。 也就是说， `setlocale()` 将替换为 `_o_setlocale()` 。
@@ -52,7 +52,7 @@ UCRT 的全局状态不会在应用程序和操作系统之间共享。 例如�
 - _Putch 使用的缓冲区 [_putwch](reference/putch-putwch.md)
 - [_set_invalid_parameter_handler、_set_thread_local_invalid_parameter_handler](reference/set-invalid-parameter-handler-set-thread-local-invalid-parameter-handler.md)
 - [_set_new_handler](reference/set-new-handler.md) 和 [_set_new_mode](reference/set-new-mode.md)
-- [fmode] (text-and-binary-mode-file-i-o.md) 
+- [fmode](text-and-binary-mode-file-i-o.md)
 - [时区信息](time-management.md)
 
 ## <a name="see-also"></a>另请参阅

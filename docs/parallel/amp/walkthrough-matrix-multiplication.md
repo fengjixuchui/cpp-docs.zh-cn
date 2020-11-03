@@ -2,22 +2,22 @@
 title: 演练：矩阵乘法
 ms.date: 04/23/2019
 ms.assetid: 61172e8b-da71-4200-a462-ff3a908ab0cf
-ms.openlocfilehash: 6387e68304c7b1dbf0531729b7b73b519f40d159
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: d45e731cefe51a815424aa941362dce8ceaa4500
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87215863"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924348"
 ---
 # <a name="walkthrough-matrix-multiplication"></a>演练：矩阵乘法
 
 此分步演练演示如何使用 C++ AMP 加速矩阵相乘的执行。 将显示两个算法，一个不平铺，另一个用于平铺。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="prerequisites"></a>必备条件
 
 开始之前：
 
-- 阅读[C++ AMP 概述](../../parallel/amp/cpp-amp-overview.md)。
+- 阅读 [C++ AMP 概述](../../parallel/amp/cpp-amp-overview.md)。
 
 - [使用磁贴](../../parallel/amp/using-tiles.md)读取。
 
@@ -27,7 +27,7 @@ ms.locfileid: "87215863"
 
 根据你安装的 Visual Studio 版本，创建新项目的说明有所不同。 若要查看 Visual Studio 首选项的文档，请使用“版本”选择器控件。 它位于此页面上目录表的顶部。
 
-::: moniker range="vs-2019"
+::: moniker range="msvc-160"
 
 ### <a name="to-create-the-project-in-visual-studio-2019"></a>在 Visual Studio 2019 中创建项目
 
@@ -35,33 +35,33 @@ ms.locfileid: "87215863"
 
 1. 在对话框顶部，将“语言”  设置为“C++”  ，将“平台”  设置为“Windows”  ，并将“项目类型”  设置为“控制台”  。
 
-1. 从筛选的项目类型列表中，选择 "**空项目**"，然后选择 "**下一步**"。 在下一页中，在 "**名称**" 框中输入*MatrixMultiply*以指定项目的名称，并指定项目位置（如果需要）。
+1. 从筛选的项目类型列表中，选择 " **空项目** "，然后选择 " **下一步** "。 在下一页中，在 " **名称** " 框中输入 *MatrixMultiply* 以指定项目的名称，并指定项目位置（如果需要）。
 
    ![新建控制台应用](../../build/media/mathclient-project-name-2019.png "新建控制台应用")
 
 1. 选择“创建”  按钮创建客户端项目。
 
-1. 在**解决方案资源管理器**中，打开 "**源文件**" 的快捷菜单，然后选择 "**添加** > **新项**"。
+1. 在 **解决方案资源管理器** 中，打开 " **源文件** " 的快捷菜单，然后选择 " **添加** > **新项** "。
 
-1. 在 "**添加新项**" 对话框中，选择 " **c + + 文件（.cpp）**"，在 "**名称**" 框中输入*MatrixMultiply* ，然后选择 "**添加**" 按钮。
+1. 在 " **添加新项** " 对话框中，选择 " **c + + 文件 ( .cpp)** ，在" **名称** "框中输入 *MatrixMultiply* ，然后选择" **添加** "按钮。
 
 ::: moniker-end
 
-::: moniker range="<=vs-2017"
+::: moniker range="<=msvc-150"
 
 ### <a name="to-create-a-project-in-visual-studio-2017-or-2015"></a>在 Visual Studio 2017 或2015中创建项目
 
-1. 在 Visual Studio 的菜单栏上，选择 "**文件**" " > **新建** > **项目**"。
+1. 在 Visual Studio 的菜单栏上，选择 " **文件** " " > **新建** > **项目** "。
 
-1. 在 "模板" 窗格中的 "**已安装**" 下，选择**Visual C++**。
+1. 在 "模板" 窗格中的 " **已安装** " 下，选择 **Visual C++** 。
 
-1. 选择 "**空项目**"，在 "**名称**" 框中输入*MatrixMultiply* ，然后选择 **"确定"** 按钮。
+1. 选择 " **空项目** "，在 " **名称** " 框中输入 *MatrixMultiply* ，然后选择 **"确定"** 按钮。
 
 1. 选择“下一步”按钮  。
 
-1. 在**解决方案资源管理器**中，打开 "**源文件**" 的快捷菜单，然后选择 "**添加** > **新项**"。
+1. 在 **解决方案资源管理器** 中，打开 " **源文件** " 的快捷菜单，然后选择 " **添加** > **新项** "。
 
-1. 在 "**添加新项**" 对话框中，选择 " **c + + 文件（.cpp）**"，在 "**名称**" 框中输入*MatrixMultiply* ，然后选择 "**添加**" 按钮。
+1. 在 " **添加新项** " 对话框中，选择 " **c + + 文件 ( .cpp)** ，在" **名称** "框中输入 *MatrixMultiply* ，然后选择" **添加** "按钮。
 
 ::: moniker-end
 
@@ -109,11 +109,11 @@ ms.locfileid: "87215863"
 
    算法是矩阵乘法定义的简单实现。 它不使用任何并行或线程算法来减少计算时间。
 
-1. 在菜单栏上，选择 "**文件**" "  >  **全部保存**"。
+1. 在菜单栏上，选择 " **文件** " "  >  **全部保存** "。
 
-1. 选择**F5**键盘快捷方式开始调试，并验证输出是否正确。
+1. 选择 **F5** 键盘快捷方式开始调试，并验证输出是否正确。
 
-1. 选择**Enter**以退出应用程序。
+1. 选择 **Enter** 以退出应用程序。
 
 ### <a name="to-multiply-by-using-c-amp"></a>使用 C++ AMP 进行相乘
 
@@ -171,9 +171,9 @@ ms.locfileid: "87215863"
    }
    ```
 
-1. 按**Ctrl** + **F5**键盘快捷方式开始调试，并验证输出是否正确。
+1. 按 **Ctrl** + **F5** 键盘快捷方式开始调试，并验证输出是否正确。
 
-1. 按**空格键**退出应用程序。
+1. 按 **空格键** 退出应用程序。
 
 ## <a name="multiplication-with-tiling"></a>乘法 with 平铺
 
@@ -181,7 +181,7 @@ ms.locfileid: "87215863"
 
 - 您可以创建 `tile_static` 变量。 访问空间中的数据 `tile_static` 比访问全局空间中的数据的速度要快很多。 `tile_static`为每个图块创建变量的实例，并且磁贴中的所有线程都可以访问该变量。 平铺的主要优点是由于访问导致的性能提升 `tile_static` 。
 
-- 可以调用[tile_barrier：： wait](reference/tile-barrier-class.md#wait)方法，停止一个磁贴中指定代码行处的所有线程。 不能保证线程将在其中运行的顺序，只有一个磁贴中的所有线程将在调用时停止， `tile_barrier::wait` 然后再继续执行。
+- 可以调用 [tile_barrier：： wait](reference/tile-barrier-class.md#wait) 方法，停止一个磁贴中指定代码行处的所有线程。 不能保证线程将在其中运行的顺序，只有一个磁贴中的所有线程将在调用时停止， `tile_barrier::wait` 然后再继续执行。
 
 - 您可以访问相对于整个对象的线程索引 `array_view` 和相对于磁贴的索引。 使用本地索引可以使代码更易于读取和调试。
 
@@ -316,11 +316,11 @@ ms.locfileid: "87215863"
    }
    ```
 
-1. 按**Ctrl** + **F5**键盘快捷方式开始调试，并验证输出是否正确。
+1. 按 **Ctrl** + **F5** 键盘快捷方式开始调试，并验证输出是否正确。
 
-1. 按**空格键**退出应用程序。
+1. 按 **空格键** 退出应用程序。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [C++ AMP (C++ Accelerated Massive Parallelism)](../../parallel/amp/cpp-amp-cpp-accelerated-massive-parallelism.md)<br/>
 [演练：调试 C++ AMP 应用程序](../../parallel/amp/walkthrough-debugging-a-cpp-amp-application.md)

@@ -1,14 +1,14 @@
 ---
 title: 在 Visual Studio 中配置 Linux MSBuild C++ 项目
-ms.date: 08/06/2020
+ms.date: 10/16/2020
 description: 在 Visual Studio 中配置基于 MSBuild 的 Linux 项目，以便可以生成它。
 ms.assetid: 4d7c6adf-54b9-4b23-bd23-5de0c825b768
-ms.openlocfilehash: 4e99645eea89682b4beac5452da01755ea555ec4
-ms.sourcegitcommit: c1fd917a8c06c6504f66f66315ff352d0c046700
+ms.openlocfilehash: 51837dc86d041b9120f984cc01f8db06d696b292
+ms.sourcegitcommit: f19f02f217b80804ab321d463c76ce6f681abcc6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90685951"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92176332"
 ---
 # <a name="configure-a-linux-msbuild-c-project-in-visual-studio"></a>在 Visual Studio 中配置 Linux MSBuild C++ 项目
 
@@ -26,7 +26,7 @@ Linux 支持在 Visual Studio 2017 及更高版本中提供。
 
 Visual Studio 2019 版本 16.1：
 
-- 当以 WSL 为目标时，可以避免在以远程 Linux 系统为目标时生成和 IntelliSense 所需的复制操作。
+- 面向 WSL 时，可免去生成和获取 IntelliSense 时所需的复制操作，这些操作是面向远程 Linux 系统时所需的。
 
 - 可以指定用于生成和调试的独立 Linux 目标。
 
@@ -40,6 +40,10 @@ Visual Studio 2019 版本 16.1：
 
 默认情况下，生成可执行文件 (.out)。 若要生成静态或动态库，或使用现有生成文件，请使用“配置类型”设置。
 
+如果要针对适用于 Linux 的 Windows 子系统 (WSL) 进行构建，则 WSL 版本 1 限制为 64 个并行编译进程。 这由“配置属性”>“C/C++”>“常规”中的“最大并行编译作业数”设置控制 。
+
+无论使用的 WSL 版本是什么，如果打算使用超过 64 个并行编译进程，建议使用 Ninja 进行构建，这通常会更快且更可靠。 要使用 Ninja 进行构建，请使用“配置属性”>“常规”中的“启用增量生成”设置 。
+
 有关属性页中设置的详细信息，请参阅 [Linux 项目属性页参考](prop-pages-linux.md)。
 
 ## <a name="remote-settings"></a>远程设置
@@ -52,7 +56,7 @@ Visual Studio 2019 版本 16.1：
 
    ::: moniker range="vs-2019"
 
-   Visual Studio 2019 版本 16.1：若要以适用于 Linux 的 Windows 子系统为目标，请单击向下箭头找到“平台工具集”，然后选择“WSL_1_0” 。 其他远程选项将消失，默认 WSL shell 的路径将显示在其位置：
+   Visual Studio 2019 版本 16.7：若要面向适用于 Linux 的 Windows 子系统 (WSL)，请将“平台工具集”下拉列表设置为“适用于 Linux 的 Windows 子系统的 GCC” 。 其他远程选项将消失，默认 WSL shell 的路径将显示在其位置：
 
    ![WSL 生成计算机](media/wsl-remote-vs2019.png)
 
@@ -62,12 +66,12 @@ Visual Studio 2019 版本 16.1：
 
    ::: moniker-end
 
-- “远程生成根目录”确定在远程 Linux 计算机上生成项目的根位置。 除非更改，否则该位置默认为 **~/projects**。
+- “远程生成根目录”确定在远程 Linux 计算机上生成项目的根位置。 除非更改，否则该位置默认为 **~/projects** 。
 
 - “远程生成项目目录”是在远程 Linux 计算机上生成此特定项目的位置。 该位置默认为 **$(RemoteRootDir)/$(ProjectName)** ，它将扩展到以当前项目命名的目录，在上面设置的根目录下。
 
 > [!NOTE]
-> 要更改默认的 C 和 C++ 编译器，或者用于生成项目的链接器和存档程序，请使用“C/C++”>“常规”部分和“链接器”>“常规”部分中的相应条目 。 例如，可以指定某个版本的 GCC 或 Clang。 有关详细信息，请参阅 [C/C+ + 属性 (Linux C++)](prop-pages/c-cpp-linux.md) 和[链接器属性 (Linux C++)](prop-pages/linker-linux.md)。
+> 要更改默认的 C 和 C++ 编译器，或者用于生成项目的链接器和存档程序，请使用“C/C++”>“常规”部分和“链接器”>“常规”部分中的相应条目 。 例如，可以指定某个版本的 GCC 或 Clang。 有关详细信息，请参阅 [ 属性 (Linux C++)](prop-pages/c-cpp-linux.md) 和[链接器属性 (Linux C++)](prop-pages/linker-linux.md)。
 
 ## <a name="copy-sources-remote-systems-only"></a>复制源（仅限远程系统）
 
@@ -79,9 +83,9 @@ Visual Studio 2019 版本 16.1：
 
 在远程系统上进行生成时，开发电脑上的源文件将复制到 Linux 计算机并在该计算机上进行编译。 默认情况下，Visual Studio 项目中的所有源文件都将复制到上述设置中设置的位置。 但是，也可以将其他源文件添加到此列表，或完全关闭复制源文件，这是生成文件项目的默认值。
 
-- “**要复制的源**”确定将哪些源文件复制到远程计算机。 默认情况下，\@(SourcesToCopyRemotely) 默认为项目中的所有源代码文件，但不包含图像等任何资产/资源文件。
+- “ **要复制的源** ”确定将哪些源文件复制到远程计算机。 默认情况下，\@(SourcesToCopyRemotely) 默认为项目中的所有源代码文件，但不包含图像等任何资产/资源文件。
 
-- 可以打开和关闭“**复制源**”，以启用和禁用将源文件复制到远程计算机操作。
+- 可以打开和关闭“ **复制源** ”，以启用和禁用将源文件复制到远程计算机操作。
 
 - 通过“要复制的其他源”，可添加将复制到远程系统的其他源文件。 可以指定以分号分隔的列表，也可以使用 **:=** 语法指定要使用的本地和远程名称：
 

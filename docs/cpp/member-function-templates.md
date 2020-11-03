@@ -4,12 +4,12 @@ ms.date: 11/04/2016
 helpviewer_keywords:
 - function templates, member functions
 ms.assetid: 83d51835-6a27-40ed-997c-7d90dc9182d8
-ms.openlocfilehash: ee36d4f33f3e4216e2ad9c434ac1da4ca3aa83e8
-ms.sourcegitcommit: 857fa6b530224fa6c18675138043aba9aa0619fb
+ms.openlocfilehash: 8514c8ffe630f5bc44d8d287d6ccf08c7755e3a0
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80177976"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008556"
 ---
 # <a name="member-function-templates"></a>成员函数模板
 
@@ -17,7 +17,7 @@ ms.locfileid: "80177976"
 
 成员函数可以是多个环境中的函数模板。 类模板的所有函数都是泛型的，但却不称为成员模板或成员函数模板。 如果这些成员函数采用其自己的模板自变量，则将它们视为成员函数模板。
 
-## <a name="example"></a>示例
+## <a name="example-declare-member-function-templates"></a>示例：声明成员函数模板
 
 非模板或模板类的成员函数模板将声明为带有其模板参数的函数模板。
 
@@ -36,7 +36,7 @@ int main()
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-member-function-template-of-template-class"></a>示例：模板类的成员函数模板
 
 以下示例显示模板类的成员函数模板。
 
@@ -57,7 +57,7 @@ int main()
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-define-member-templates-outside-class"></a>示例：在类外部定义成员模板
 
 ```cpp
 // defining_member_templates_outside_class.cpp
@@ -79,7 +79,7 @@ int main()
 }
 ```
 
-## <a name="example"></a>示例
+## <a name="example-templated-user-defined-conversion"></a>示例：模板化用户定义的转换
 
 局部类不允许具有成员模板。
 
@@ -105,6 +105,6 @@ int main()
 }
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [函数模板](../cpp/function-templates.md)

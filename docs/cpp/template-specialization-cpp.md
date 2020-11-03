@@ -4,12 +4,12 @@ ms.date: 11/04/2016
 helpviewer_keywords:
 - partial specialization of class templates
 ms.assetid: f3c67c0b-3875-434a-b8d8-bb47e99cf4f0
-ms.openlocfilehash: 17f1f15a5356d760119123214e939a7dd2d1fbaf
-ms.sourcegitcommit: 1f009ab0f2cc4a177f2d1353d5a38f164612bdb1
+ms.openlocfilehash: 7f71c2c3862bd015ba3edcd17aeac85472eb2562
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2020
-ms.locfileid: "87223572"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008919"
 ---
 # <a name="template-specialization-c"></a>模板特殊化 (C++)
 
@@ -19,7 +19,7 @@ ms.locfileid: "87223572"
 
 - 模板只有一个类型，但指针、引用、指向成员的指针或函数指针类型需要专用化。 专用化本身仍是指向或引用的类型上的模板。
 
-## <a name="example"></a>示例
+## <a name="example-partial-specialization-of-class-templates"></a>示例：类模板的部分专用化
 
 ```cpp
 // partial_specialization_of_class_templates.cpp
@@ -66,7 +66,7 @@ PTS<S*>::IsPointer == 1 PTS<S*>::IsPointerToDataMember ==0
 PTS<int S::*>::IsPointer == 0 PTS<int S::*>::IsPointerToDataMember == 1
 ```
 
-## <a name="example"></a>示例
+## <a name="example-partial-specialization-for-pointer-types"></a>示例：指针类型的部分专用化
 
 如果具有采用任何类型的模板集合类 `T` ，则可以创建采用任何指针类型的部分专用化 `T*` 。 以下代码演示了一个集合类模板 `Bag` 以及指针类型的部分专用化，在此专用化中，该集合在将指针类型复制到数组前取消引用它们。 该集合随后存储指向的值。 对于原始模板，只有指针本身将存储在集合中，从而使数据易受删除或修改。 在此特殊指针版本的集合中，添加了在 `add` 方法中检查 null 指针的代码。
 
@@ -178,7 +178,7 @@ Null pointer!
 3 87 8 100
 ```
 
-## <a name="example"></a>示例
+## <a name="example-define-partial-specialization-so-one-type-is-int"></a>示例：定义部分专用化，使一种类型为 `int`
 
 下面的示例定义了一个模板类，该类采用任意两种类型的对，然后定义该模板类的部分专用化，以便其中一个类型为 **`int`** 。 该专用化定义了基于整数实现简单气泡排序的另一种排序方法。
 

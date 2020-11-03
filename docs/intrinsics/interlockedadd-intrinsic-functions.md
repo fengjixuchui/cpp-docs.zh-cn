@@ -26,12 +26,12 @@ helpviewer_keywords:
 - _InterlockedAdd_acq intrinsic
 - _InterlockedAdd64_rel intrinsic
 ms.assetid: 3d319603-ea9c-4fdd-ae61-e52430ccc3b1
-ms.openlocfilehash: efe1444273f17c8f0544d2c51b98923169032e61
-ms.sourcegitcommit: c1fd917a8c06c6504f66f66315ff352d0c046700
+ms.openlocfilehash: c611a22e696b9dda0c6910cd4aac84399cc7d20a
+ms.sourcegitcommit: ced5ff1431ffbd25b20d106901955532723bd188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90683892"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92135549"
 ---
 # <a name="_interlockedadd-intrinsic-functions"></a>_InterlockedAdd 内部函数
 
@@ -103,13 +103,13 @@ __int64 _InterlockedAdd64_rel(
 
 **头文件** \<intrin.h>
 
-## <a name="remarks"></a>备注
+## <a name="remarks"></a>注解
 
 带 `_acq` 或 `_rel` 后缀的这些版本的函数可在获取或发布语义后执行互锁加法。 *获取语义* 意味着在以后的内存读取和写入之前，操作的结果将对所有线程和处理器可见。 进入临界区时，获取十分有用。 *版本语义* 表示在操作的结果使其自身可见之前，所有内存读取和写入均强制对所有线程和处理器可见。 离开临界区时，发布十分有用。 `_nf` ( "无防护" ) 后缀的内部函数不能充当内存屏障。
 
 这些例程只能用作内部函数。
 
-## <a name="examples"></a>示例
+## <a name="example-_interlockedadd"></a>示例：`_InterlockedAdd`
 
 ```cpp
 // interlockedadd.cpp
@@ -130,11 +130,13 @@ int main()
 }
 ```
 
-## <a name="output"></a>输出
+## <a name="output-_interlockedadd"></a>输出：`_InterlockedAdd`
 
 ```Output
 0xffffff00 0xff0000 0xffffff00
 ```
+
+## <a name="example-_interlockedadd64"></a>示例：`_InterlockedAdd64`
 
 ```cpp
 // interlockedadd64.cpp
@@ -158,7 +160,7 @@ int main()
 }
 ```
 
-## <a name="output"></a>输出
+## <a name="output-_interlockedadd64"></a>输出：`_InterlockedAdd64`
 
 ```Output
 ff0000000000 + ff0000ffffffff = ffff00ffffffff

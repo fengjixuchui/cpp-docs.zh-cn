@@ -5,22 +5,22 @@ ms.date: 09/10/2020
 helpviewer_keywords:
 - preprocessor, experimental
 - preprocessor, new
-ms.openlocfilehash: c95f923d8c38250958e26431b61a71a1e6a7fdda
-ms.sourcegitcommit: 6280a4c629de0f638ebc2edd446de2a9b11f0406
+ms.openlocfilehash: 5327a8148f78a07e222fae7fb92e6ed741d12011
+ms.sourcegitcommit: 9c2b3df9b837879cd17932ae9f61cdd142078260
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90041362"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92924582"
 ---
 # <a name="msvc-new-preprocessor-overview"></a>MSVC 新预处理器概述
 
-::: moniker range="vs-2015"
+::: moniker range="msvc-140"
 
 Visual Studio 2015 使用不符合标准 c + + 或 C99 的传统预处理器。 从 Visual Studio 2019 16.5 版开始，新的预处理器支持 c + + 20 标准功能是完整功能。 这些更改可通过使用 [/zc：预处理器](../build/reference/zc-preprocessor.md) 编译器开关来使用。 在 Visual Studio 2017 版本15.8 及更高版本中，使用 [/experimental：预处理器](../build/reference/experimental-preprocessor.md) 编译器开关开始提供新预处理器的实验版本。 提供了有关在 Visual Studio 2017 和 Visual Studio 2019 中使用新预处理器的详细信息。 若要查看 Visual Studio 首选项的文档，请使用“版本”选择器控件。 它位于此页面上目录表的顶部。
 
 ::: moniker-end
 
-::: moniker range=">=vs-2017"
+::: moniker range=">=msvc-150"
 
 我们正在更新 Microsoft c + + 预处理器来改善标准一致性、修复长久持续 bug 并更改正式定义的某些行为。 我们还添加了新诊断，以便在宏定义中出现错误时发出警告。
 
@@ -128,7 +128,7 @@ ADD_STD(string) s;
 
 ### <a name="comma-elision-in-variadic-macros"></a>可变参数宏中的逗号省略
 
-传统的 MSVC 预处理器在空替换之前始终删除逗号 `__VA_ARGS__` 。 新的预处理器更严格地遵循其他常用跨平台编译器的行为。 若要移除逗号，可变参数参数必须 (不只为空) 并且必须使用运算符进行标记 `##` 。 请看下面的示例：
+传统的 MSVC 预处理器在空替换之前始终删除逗号 `__VA_ARGS__` 。 新的预处理器更严格地遵循其他常用跨平台编译器的行为。 若要移除逗号，可变参数参数必须 (不只为空) 并且必须使用运算符进行标记 `##` 。 请考虑以下示例：
 
 ```cpp
 void func(int, int = 2, int = 3);

@@ -31,12 +31,12 @@ helpviewer_keywords:
 - files [C++], translation
 - setmode function
 ms.assetid: 996ff7cb-11d1-43f4-9810-f6097182642a
-ms.openlocfilehash: 1995d54e972f99543773fff374e56c0dd7cf4988
-ms.sourcegitcommit: 5a069c7360f75b7c1cf9d4550446ec2fa2eb2293
+ms.openlocfilehash: abedba6f1d414191732859e3e44b54cc16acc4e9
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82915813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008413"
 ---
 # <a name="_setmode"></a>_setmode
 
@@ -51,7 +51,7 @@ int _setmode (
 );
 ```
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
 *fd*<br/>
 文件描述符。
@@ -63,35 +63,35 @@ int _setmode (
 
 如果成功，将返回之前的转换模式。
 
-如果传递到此函数的参数无效，则将调用无效参数处理程序，如[参数验证](../../c-runtime-library/parameter-validation.md)中所述。 如果允许执行继续，则此函数将返回-1，并将**errno**设置为**ebadf (**，指示无效的文件描述符，或设置为**EINVAL**，指示无效的*模式*参数。
+如果传递到此函数的参数无效，则将调用无效参数处理程序，如[参数验证](../../c-runtime-library/parameter-validation.md)中所述。 如果允许执行继续，则此函数将返回-1，并将 **errno** 设置为 **ebadf (**，指示无效的文件描述符，或设置为 **EINVAL**，指示无效的 *模式* 参数。
 
 有关这些属性和其他的更多信息返回代码示例，请参见 [_doserrno、errno、_sys_errlist 和 _sys_nerr](../../c-runtime-library/errno-doserrno-sys-errlist-and-sys-nerr.md)。
 
 ## <a name="remarks"></a>备注
 
-**_Setmode**函数将*设置为由 fd 提供的文件*的转换模式。 *fd* 将 **_O_TEXT**作为*模式*进行传递将设置文本（即转换）模式。 回车符（CR-LF）组合在输入时转换为换行符。 输出时换行符将转换为 CR-LF 组合。 传递 **_O_BINARY**会设置二进制（未转换）模式，在此模式下，将禁止显示这些翻译。
+**_Setmode**函数将*设置为由 fd 提供的文件*的转换模式。 *fd* 将 **_O_TEXT** 作为 *模式* 进行传递会设置文本 (即已转换) 模式。 回车换行符 (CR-LF) 组合转换为输入的单个换行符。 输出时换行符将转换为 CR-LF 组合。 传递 **_O_BINARY** 会设置二进制 (未翻译) 模式，在此模式下，将禁止显示这些翻译。
 
 你还可以传递 **_O_U16TEXT**、 **_O_U8TEXT**或 **_O_WTEXT** ，以启用 Unicode 模式，如本文档后面的第二个示例中所示。
 
 > [!CAUTION]
-> Unicode 模式适用于宽打印功能（例如， `wprintf`），而窄打印功能则不支持。 对 Unicode 模式流使用窄显函数会触发断言。
+> Unicode 模式适用于宽打印功能 (例如) ， `wprintf` 不适用于窄打印功能。 对 Unicode 模式流使用窄显函数会触发断言。
 
-**_setmode**通常用于修改**stdin**和**stdout**的默认转换模式，但是可以在任何文件上使用它。 如果将 **_setmode**应用到流的文件描述符，请在对流执行任何输入或输出操作之前调用 **_setmode** 。
+**_setmode** 通常用于修改 **stdin** 和 **stdout**的默认转换模式，但是可以在任何文件上使用它。 如果将 **_setmode** 应用到流的文件描述符，请在对流执行任何输入或输出操作之前调用 **_setmode** 。
 
 > [!CAUTION]
-> 如果将数据写入文件流，请先使用[fflush](fflush.md)显式刷新代码，然后再使用 **_setmode**更改模式。 如果不刷新代码，可能会导致意外行为。 如果尚未将数据写入流，则不必刷新代码。
+> 如果将数据写入文件流，请先使用 [fflush](fflush.md) 显式刷新代码，然后再使用 **_setmode** 更改模式。 如果不刷新代码，可能会导致意外行为。 如果尚未将数据写入流，则不必刷新代码。
 
-默认情况下，此函数的全局状态的作用域限定为应用程序。 若要更改此项，请参阅[CRT 中的全局状态](../global-state.md)。
+默认情况下，此函数的全局状态的作用域限定为应用程序。 若要更改此项，请参阅 [CRT 中的全局状态](../global-state.md)。
 
 ## <a name="requirements"></a>要求
 
-|例程|必需的标头|可选标头|
+|例程所返回的值|必需的标头|可选标头|
 |-------------|---------------------|----------------------|
 |**_setmode**|\<io.h>|\<fcntl.h>|
 
 有关兼容性的详细信息，请参阅[兼容性](../../c-runtime-library/compatibility.md)。
 
-## <a name="example"></a>示例
+## <a name="example-use-_setmode-to-change-stdin"></a>示例：使用 _setmode 更改 stdin
 
 ```C
 // crt_setmode.c
@@ -119,7 +119,7 @@ int main( void )
 'stdin' successfully changed to binary mode
 ```
 
-## <a name="example"></a>示例
+## <a name="example-use-_setmode-to-change-stdout"></a>示例：使用 _setmode 更改 stdout
 
 ```C
 // crt_setmodeunicode.c
@@ -139,7 +139,7 @@ int main(void) {
 }
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [文件处理](../../c-runtime-library/file-handling.md)<br/>
 [_creat、_wcreat](creat-wcreat.md)<br/>

@@ -14,12 +14,12 @@ helpviewer_keywords:
 - -LTCG linker option
 - LTCG linker option
 ms.assetid: 788c6f52-fdb8-40c2-90af-4026ea2cf2e2
-ms.openlocfilehash: c954794d6d0fd087eee74ebb7e86d77b89a9a8fc
-ms.sourcegitcommit: 80c8a512b361bd84e38958beb1a1bf6db7434021
+ms.openlocfilehash: 6c0009e5236f33119ed411dc81ce6a4385f21a2a
+ms.sourcegitcommit: f7fbdc39d73e1fb3793c396fccf7a1602af7248b
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86180794"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91662263"
 ---
 # <a name="ltcg-link-time-code-generation"></a>`/LTCG` (的链接时间代码生成) 
 
@@ -38,20 +38,20 @@ ms.locfileid: "86180794"
 **`INCREMENTAL`**<br/>
  (可选) 指定链接器仅对受编辑影响的文件（而不是整个项目）应用整个程序优化或链接时间代码生成 (LTCG) 。 默认情况下，如果指定了，则不设置此标志 **`/LTCG`** ，并且通过使用全程序优化链接整个项目。
 
-**`NOSTATUS`**&#124;**`STATUS`**<br/>
+**`NOSTATUS`** &#124; **`STATUS`**<br/>
 （可选）指定链接器是否显示用来指示链接的完成百分比的进度指示器。 默认情况下，不显示此状态信息。
 
 **`OFF`**<br/>
 （可选）禁用链接时代码生成。 此行为与 **`/LTCG`** 命令行中未指定时的行为相同。
 
 **`PGINSTRUMENT`**<br/>
-（可选）这些选项自 Visual Studio 2015 开始已弃用。 相反，请使用 **`/LTCG`** 和 `[/GENPROFILE` 或 `/FASTGENPROFILE` ] (genprofile-fastgenprofile-generate-profiling-instrumented-build.md) 为按配置文件优化生成检测的生成。 从检测过的运行中收集的数据用于创建优化的映像。 有关详细信息，请参阅[按配置优化](../profile-guided-optimizations.md)。 此选项的缩写形式是 **`/LTCG:PGI`** 。
+（可选）这些选项自 Visual Studio 2015 开始已弃用。 相反，请使用 **`/LTCG`** 和[ `/GENPROFILE` `/FASTGENPROFILE` 或](genprofile-fastgenprofile-generate-profiling-instrumented-build.md)为按配置文件优化生成检测的生成。 从检测过的运行中收集的数据用于创建优化的映像。 有关详细信息，请参阅[按配置优化](../profile-guided-optimizations.md)。 此选项的缩写形式是 **`/LTCG:PGI`** 。
 
 **`PGOPTIMIZE`**<br/>
-（可选）这些选项自 Visual Studio 2015 开始已弃用。 请改用 **`/LTCG`** 和 [`/USEPROFILE`](useprofile.md) 来生成优化的映像。 有关详细信息，请参阅[按配置优化](../profile-guided-optimizations.md)。 此选项的缩写形式是 **`/LTCG:PGO`** 。
+（可选）这些选项自 Visual Studio 2015 开始已弃用。 请改用 **`/LTCG`** 和  [`/USEPROFILE`](useprofile.md) 来生成优化的映像。 有关详细信息，请参阅[按配置优化](../profile-guided-optimizations.md)。 此选项的缩写形式是 **`/LTCG:PGO`** 。
 
 **`PGUPDATE`**<br/>
-（可选）这些选项自 Visual Studio 2015 开始已弃用。 请改用 **`/LTCG`** 和 **`/USEPROFILE`** 来重新生成优化的映像。 有关详细信息，请参阅[按配置优化](../profile-guided-optimizations.md)。 此选项的缩写形式是 **`/LTCG:PGU`** 。
+（可选）这些选项自 Visual Studio 2015 开始已弃用。 请改用 **`/LTCG`** 和  **`/USEPROFILE`** 来重新生成优化的映像。 有关详细信息，请参阅[按配置优化](../profile-guided-optimizations.md)。 此选项的缩写形式是 **`/LTCG:PGU`** 。
 
 ## <a name="remarks"></a>备注
 
@@ -91,7 +91,7 @@ ms.locfileid: "86180794"
 
 如果链接器通过使用编译的模块 **`/GL`** 或 MSIL 模块 (查看[ `.netmodule` 作为链接器输入](netmodule-files-as-linker-input.md)) 的文件，则链接器将调用链接时代码生成。 如果在将 **`/LTCG`** **`/GL`** 或 MSIL 模块传递给链接器时未显式指定，链接器最终将检测到这种情况，并通过使用重新启动链接 **`/LTCG`** 。 在将 **`/LTCG`** **`/GL`** 和 MSIL 模块传递给链接器以获得尽可能最快的生成性能时，请显式指定。
 
-为了获得更快的性能，请使用 **`/LTCG:INCREMENTAL`** 。 此选项通知链接器仅重新优化受源文件更改影响的文件，而不是整个项目。 此选项可显著减少所需的链接时间。 此选项与[增量链接](incremental-link-incrementally.md)不是相同的选项。
+为了获得更快的性能，请使用 **`/LTCG:INCREMENTAL`** 。 此选项通知链接器仅重新优化受源文件更改影响的文件，而不是整个项目。 此选项可显著减少所需的链接时间。 此选项与 [增量链接](incremental-link-incrementally.md)不是相同的选项。
 
 **`/LTCG`** 不适用于 [`/INCREMENTAL`](incremental-link-incrementally.md) 。
 
@@ -129,7 +129,7 @@ ms.locfileid: "86180794"
 > [!NOTE]
 > 如果你使用 **`/LTCG`** 和重新定义 `mainCRTStartup` ，你的应用程序可能具有与在初始化全局对象之前执行的用户代码相关的无法预测的行为。 有三种方法可以解决此问题：不要重新定义 `mainCRTStartup` ，不使用编译包含的文件， `mainCRTStartup` 也可以 **`/LTCG`** 静态初始化全局变量和对象。
 
-### <a name="ltcg-and-msil-modules"></a>`/LTCG`和 MSIL 模块
+### <a name="ltcg-and-msil-modules"></a>`/LTCG` 和 MSIL 模块
 
 当指定时，使用和编译的模块 [`/GL`](gl-whole-program-optimization.md) [`/clr`](clr-common-language-runtime-compilation.md) 可用作链接器的输入 **`/LTCG`** 。
 
@@ -151,7 +151,7 @@ ms.locfileid: "86180794"
 
 - 请参阅 <xref:Microsoft.VisualStudio.VCProjectEngine.VCLinkerTool.LinkTimeCodeGeneration%2A>。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [MSVC 链接器参考](linking.md)\
 [MSVC 链接器选项](linker-options.md)

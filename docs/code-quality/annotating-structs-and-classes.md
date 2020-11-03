@@ -19,12 +19,12 @@ f1_keywords:
 - _Field_size_full_opt_
 - _Field_z_
 ms.assetid: b8278a4a-c86e-4845-aa2a-70da21a1dd52
-ms.openlocfilehash: e6b08c18d2524f1240eed99dd45320a7f4c00ac3
-ms.sourcegitcommit: 7bea0420d0e476287641edeb33a9d5689a98cb98
+ms.openlocfilehash: fe177e6afea088b59b16bfbd0bff6fa00b526222
+ms.sourcegitcommit: 30792632548d1c71894f9fecbe2f554294b86020
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "79466062"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91765118"
 ---
 # <a name="annotating-structs-and-classes"></a>批注结构和类
 
@@ -34,19 +34,19 @@ ms.locfileid: "79466062"
 
 - `_Field_range_(low, high)`
 
-     该字段的范围是从 `low` 到 `high`。  等效于使用合适的前置或后置条件应用于批注对象的 `_Satisfies_(_Curr_ >= low && _Curr_ <= high)`。
+     该字段处于 (包含) 从到的范围 `low` `high` 。  等效于 `_Satisfies_(_Curr_ >= low && _Curr_ <= high)` 使用合适的前置或后置条件应用于带批注的对象。
 
-- `_Field_size_(size)`、`_Field_size_opt_(size)`、`_Field_size_bytes_(size)`、`_Field_size_bytes_opt_(size)`
+- `_Field_size_(size)`, `_Field_size_opt_(size)`, `_Field_size_bytes_(size)`, `_Field_size_bytes_opt_(size)`
 
-     在 `size`指定的元素（或字节）内具有可写大小的字段。
+     在元素中具有可写大小的字段 (或字节) ，由指定 `size` 。
 
-- `_Field_size_part_(size, count)`、`_Field_size_part_opt_(size, count)`、`_Field_size_bytes_part_(size, count)``_Field_size_bytes_part_opt_(size, count)`
+- `_Field_size_part_(size, count)`, `_Field_size_part_opt_(size, count)`,         `_Field_size_bytes_part_(size, count)`, `_Field_size_bytes_part_opt_(size, count)`
 
-     在 `size`指定的元素（或字节）中具有可写大小的字段，以及可读的元素（字节）的 `count`。
+     一个字段，该字段在元素中具有可写的大小 (或指定的字节) `size` ，以及 `count` 这些元素的 (字节) 可读的。
 
-- `_Field_size_full_(size)`、`_Field_size_full_opt_(size)`、`_Field_size_bytes_full_(size)`、`_Field_size_bytes_full_opt_(size)`
+- `_Field_size_full_(size)`, `_Field_size_full_opt_(size)`, `_Field_size_bytes_full_(size)`, `_Field_size_bytes_full_opt_(size)`
 
-     在 `size`指定的元素（或字节）中具有可读和可写大小的字段。
+     在元素中具有可读和可写大小的字段 (或) ，由指定 `size` 。
 
 - `_Field_z_`
 
@@ -54,7 +54,7 @@ ms.locfileid: "79466062"
 
 - `_Struct_size_bytes_(size)`
 
-     适用于 struct 或类声明。  指示该类型的有效对象可能大于声明的类型，以及 `size`指定的字节数。  例如：
+     适用于 struct 或类声明。  指示该类型的有效对象可能大于声明的类型，以及所指定的字节数 `size` 。  例如： 。
 
     ```cpp
 
@@ -66,7 +66,7 @@ ms.locfileid: "79466062"
 
     ```
 
-     然后，将 `MyStruct *` 类型的参数 `pM` 的缓冲区大小（以字节为单位）为：
+     然后，将类型为的参数的缓冲区大小（以字节为单位）为 `pM` `MyStruct *` ：
 
     ```cpp
     min(pM->nSize, sizeof(MyStruct))
@@ -93,20 +93,20 @@ struct MyBuffer
     _Field_range_(1, MaxBufferSize)
     int bufferSize;
 
-    _Field_size_(bufferSize)        // Prefered way - easier to read and maintain.
+    _Field_size_(bufferSize)        // Preferred way - easier to read and maintain.
     int buffer[]; // Using C99 Flexible array member
 };
 ```
 
 此示例的说明：
 
-- `_Field_z_` 等效于 `_Null_terminated_`。  "名称" 字段的 `_Field_z_` 指定名称字段为以 null 结尾的字符串。
-- `bufferSize` 的 `_Field_range_` 指定 `bufferSize` 的值应在1和 `MaxBufferSize` （两者都包含）范围内。
-- `_Struct_size_bytes_` 和 `_Field_size_` 批注的最终结果是等效的。 对于具有类似布局的结构或类，`_Field_size_` 更易于读取和维护，因为它具有比等效 `_Struct_size_bytes_` 注释更少的引用和计算。 `_Field_size_` 不需要转换为字节大小。 如果 "字节大小" 是唯一的选项，例如，对于 void 指针字段，可以使用 `_Field_size_bytes_`。 如果同时存在 `_Struct_size_bytes_` 和 `_Field_size_`，则它们将可用于工具。 如果两个批注不一致，就会执行该操作。
+- `_Field_z_` 等效于 `_Null_terminated_`。  `_Field_z_` 对于 "名称" 字段，指定名称字段为以 null 结尾的字符串。
+- `_Field_range_` 对于 `bufferSize` 指定，的值 `bufferSize` 应在1和 `MaxBufferSize` (都包含) 。
+- 和批注的最终结果 `_Struct_size_bytes_` `_Field_size_` 是等效的。 对于具有相似布局的结构或类， `_Field_size_` 更易于读取和维护，因为它具有比等效批注更少的引用和计算 `_Struct_size_bytes_` 。 `_Field_size_` 不需要转换为字节大小。 如果字节大小是唯一的选项，例如，对于 void 指针字段， `_Field_size_bytes_` 可以使用。 如果 `_Struct_size_bytes_` 和均 `_Field_size_` 存在，则它们将可用于工具。 如果两个批注不一致，就会执行该操作。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
-- [使用 SAL 批注以减少 C/C++ 代码缺陷](../code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects.md)
+- [使用 SAL 注释减少 C/C++ 代码缺陷](../code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects.md)
 - [了解 SAL](../code-quality/understanding-sal.md)
 - [对函数参数和返回值进行批注](../code-quality/annotating-function-parameters-and-return-values.md)
 - [对函数行为进行批注](../code-quality/annotating-function-behavior.md)

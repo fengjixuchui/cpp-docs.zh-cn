@@ -11,18 +11,18 @@ f1_keywords:
 helpviewer_keywords:
 - macros, error reporting
 ms.assetid: 4da9b87f-ec5c-4a32-ab93-637780909b9d
-ms.openlocfilehash: 2bcdfb474ee852e55bd54f1b125716e7785f28be
-ms.sourcegitcommit: ec6dd97ef3d10b44e0fedaa8e53f41696f49ac7b
+ms.openlocfilehash: 6b969cfb841a9a95d695eacc0a25f9dd378379ac
+ms.sourcegitcommit: ced5ff1431ffbd25b20d106901955532723bd188
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88833473"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92135536"
 ---
 # <a name="debugging-and-error-reporting-macros"></a>调试和错误报告宏
 
 这些宏提供有用的调试和跟踪功能。
 
-|名称|说明|
+|名称|描述|
 |-|-|
 |[_ATL_DEBUG_INTERFACES](#_atl_debug_interfaces)|向 "输出" 窗口写入在调用时检测到的任何接口泄漏 `_Module.Term` 。|
 |[_ATL_DEBUG_QI](#_atl_debug_qi)|将所有对的调用写入到 `QueryInterface` 输出窗口。|
@@ -94,7 +94,7 @@ ATLASSERT(booleanExpression);
 
 在调试版本中，ATLASSERT 计算 *booleanExpression* 并在结果为 false 时生成调试报告。
 
-## <a name="requirements"></a>要求
+### <a name="requirements"></a>要求
 
 **标头：** atldef
 
@@ -131,7 +131,7 @@ ATLENSURE 和 ATLASSERT 之间的区别在于 ATLENSURE 在发布版本以及调
 
 [!code-cpp[NVC_ATL_Utilities#108](../../atl/codesnippet/cpp/debugging-and-error-reporting-macros_1.cpp)]
 
-## <a name="requirements"></a>要求
+### <a name="requirements"></a>要求
 
 **标头：** afx
 
@@ -156,7 +156,7 @@ ATLTRACENOTIMPL(funcname);
 
 [!code-cpp[NVC_ATL_Utilities#127](../../atl/codesnippet/cpp/debugging-and-error-reporting-macros_2.cpp)]
 
-## <a name="requirements"></a>要求
+### <a name="requirements"></a>要求
 
 **标头：** atltrace
 
@@ -226,7 +226,7 @@ ATLTRACE2 的缩写形式将字符串写入调试器的输出窗口。 第二种
 
 ### <a name="atl-trace-flags"></a>ATL 跟踪标志
 
-|ATL 类别|说明|
+|ATL 类别|描述|
 |------------------|-----------------|
 |`atlTraceGeneral`|所有 ATL 应用程序的报表。 默认值。|
 |`atlTraceCOM`|有关 COM 方法的报告。|
@@ -244,7 +244,7 @@ ATLTRACE2 的缩写形式将字符串写入调试器的输出窗口。 第二种
 
 ### <a name="mfc-trace-flags"></a>MFC 跟踪标志
 
-|MFC 类别|说明|
+|MFC 类别|描述|
 |------------------|-----------------|
 |`traceAppMsg`|一般用途是 MFC 消息。 始终推荐。|
 |`traceDumpContext`|来自 [CDumpContext](../../mfc/reference/cdumpcontext-class.md)的消息。|

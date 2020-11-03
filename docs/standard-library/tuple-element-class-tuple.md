@@ -6,12 +6,12 @@ f1_keywords:
 helpviewer_keywords:
 - std::tuple_element
 ms.assetid: 4c51a6c1-ce81-462f-8c6c-291d69f2b77c
-ms.openlocfilehash: 21efed39fdaabe0f95f83e9dc5cdfcc508a147c5
-ms.sourcegitcommit: 590e488e51389066a4da4aa06d32d4c362c23393
+ms.openlocfilehash: be9d9fe56d35e96e4179eb511edccd475a369f32
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72684465"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008285"
 ---
 # <a name="tuple_element-class"></a>tuple_element 类
 
@@ -54,39 +54,39 @@ template <class T1, class T2>
    struct tuple_element<1, pair<T1, T2>>;
 ```
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-*索引*\
+*编入*\
 指定元素的索引。
 
-*元组*\
+*聚合*\
 元组的类型。
 
-*Elem* \
+*Elem*\
 数组元素的类型。
 
-*大小*\
+*规格*\
 数组大小。
 
-*T1* \
+*T1*\
 对中第一个元素的类型。
 
-*T2* \
+*T2*\
 一对中第二个元素的类型。
 
 ## <a name="remarks"></a>备注
 
-类模板 `tuple_element` 具有嵌套的 typedef `type`，它是元组类型*元组*的索引*索引*处的类型的同义词。
+类模板 `tuple_element` 具有嵌套的 typedef `type` ，它是元组类型*元组*的索引*索引*处的类型的同义词。
 
 此 typedef `tuple_element_t` 是 `tuple_element<Index, Tuple>::type` 的方便别名。
 
-数组的类模板特殊化提供作为 `Size` 元素的元组 `array` 的接口，其中每个元素具有相同的类型。 每个特殊化都有一个嵌套的 typedef `type`，它是 `array` 的*Index*元素类型的同义词，保留了任何常量可变的限定。
+数组的类模板专用化提供了一个接口 `array` ，用作元素的元组 `Size` ，其中每个元素具有相同的类型。 每个专用化都有一个嵌套的 typedef， `type` 它是的 *索引* 元素类型的同义词 `array` ，保留了任何常量可变的限定。
 
 每个 `pair` 类型的模板专用化都具有一个成员 typedef `type`，它是对中指定位置处元素类型的同义词，保留有任何恒定和/或可变的限定。 此 typedef `tuple_element_t` 是 `tuple_element<N, pair<T1, T2>>::type` 的方便别名。
 
-使用[Get 函数 &lt;utility &gt;](../standard-library/utility-functions.md#get)返回指定位置或指定类型的元素。
+使用[Get Function &lt; 实用工具 &gt; ](../standard-library/utility-functions.md#get)返回指定位置或指定类型的元素。
 
-## <a name="example"></a>示例
+## <a name="example-get-an-element-from-a-tuple"></a>示例：从元组获取元素
 
 ```cpp
 #include <tuple>
@@ -111,7 +111,7 @@ int main() {
 0 1.5 Tail
 ```
 
-## <a name="example"></a>示例
+## <a name="example-get-an-element-from-an-array"></a>示例：从数组获取元素
 
 ```cpp
 #include <array>
@@ -141,7 +141,7 @@ int main()
 0
 ```
 
-## <a name="example"></a>示例
+## <a name="example-get-an-element-from-a-pair"></a>示例：从成对获取元素
 
 ```cpp
 #include <utility>
@@ -174,10 +174,10 @@ int main() {
 
 ## <a name="requirements"></a>要求
 
-**标头：** \<tuple>
+**标头：**\<tuple>
 
-**标头：** \<array>（适用于数组专用化）
+**标头：** \<array> 数组专用化的 () 
 
-**标头：** \<utility > （用于对专用化）
+**标头：** \<utility> 对专用化的 () 
 
 **命名空间:** std

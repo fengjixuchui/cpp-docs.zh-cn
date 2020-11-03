@@ -4,12 +4,12 @@ ms.date: 11/04/2016
 helpviewer_keywords:
 - user-defined operators under /clr
 ms.assetid: 42f93b4a-6de4-4e34-b07b-5a62ac014f2c
-ms.openlocfilehash: cf80eb4c440c1308e8ea06a563c18569e4e4ddf2
-ms.sourcegitcommit: 0ab61bc3d2b6cfbd52a16c6ab2b97a8ea1864f12
+ms.openlocfilehash: ee5aa122983a315e55884c643a9b7894f075e260
+ms.sourcegitcommit: 43cee7a0d41a062661229043c2f7cbc6ace17fa3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62384499"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92008952"
 ---
 # <a name="user-defined-operators-ccli"></a>用户定义的运算符 (C++/CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "62384499"
 
 - 封闭类型的实例的一个句柄 (`type` ^)。
 
-- 间接引用类型 (`type`^ & 或类型 ^ %)为封闭类型的实例的句柄。
+- 引用类型间接 (`type` ^& 或类型 ^% ) 到封闭类型实例的句柄。
 
 在值类型中，静态的用户定义的运算符的参数之一必须是以下类型中的一个：
 
@@ -27,9 +27,9 @@ ms.locfileid: "62384499"
 
 - 封闭类型的间接指针类型 (`type` ^)。
 
-- 间接引用类型 (`type`%或`type`&) 到封闭类型。
+- 引用类型间接 (`type` % 或 `type`&) 到封闭类型。
 
-- 间接引用类型 (`type`^ %或`type`^ &) 句柄。
+- 引用类型间接 (`type` ^% 或 `type` ^&) 到句柄。
 
 您可以定义以下运算符：
 
@@ -57,13 +57,13 @@ ms.locfileid: "62384499"
 |>=|二进制|
 |>>|二进制|
 |^|二进制|
-|False|一元|
+|false|一元|
 |true|一元|
 |&#124;|二进制|
 |&#124;&#124;|二进制|
 |~|一元|
 
-## <a name="example"></a>示例
+## <a name="example-user-defined-operators"></a>示例：用户定义的运算符
 
 ```cpp
 // mcppv2_user-defined_operators.cpp
@@ -135,9 +135,9 @@ int main() {
 -3
 ```
 
-## <a name="example"></a>示例
+## <a name="example-operator-synthesis"></a>示例：运算符合成
 
-下面的示例演示如何使用时才可用的运算符合成 **/clr**进行编译。 如果未定义二元运算符的赋值形式，则复合运算符会创建一个，其中赋值运算符的左侧具有一个 CLR 类型。
+下面的示例演示运算符合成，它仅在使用 **/clr** 进行编译时可用。 如果未定义二元运算符的赋值形式，则复合运算符会创建一个，其中赋值运算符的左侧具有一个 CLR 类型。
 
 ```cpp
 // mcppv2_user-defined_operators_2.cpp

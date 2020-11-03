@@ -1,39 +1,52 @@
 ---
-title: 编译器警告（等级3） C4018
-ms.date: 11/04/2016
+title: 编译器警告 (等级 3) C4018
+description: Microsoft C/c + + 编译器警告 C4018，其原因和解决方法。
+ms.date: 10/16/2020
 f1_keywords:
 - C4018
 helpviewer_keywords:
 - C4018
-ms.assetid: 6e8cbb04-d914-4319-b431-cbc2fbe40eb1
-ms.openlocfilehash: f5708a9f52b6fc8206094454c352710199437f27
-ms.sourcegitcommit: 857fa6b530224fa6c18675138043aba9aa0619fb
+ms.openlocfilehash: b9d01f6b733c2ca18880aa6f4b6fca9771f8123f
+ms.sourcegitcommit: f19f02f217b80804ab321d463c76ce6f681abcc6
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80161693"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92176170"
 ---
-# <a name="compiler-warning-level-3-c4018"></a>编译器警告（等级3） C4018
+# <a name="compiler-warning-level-3-c4018"></a>编译器警告 (等级 3) C4018
 
-"expression"：有符号/无符号不匹配
+> "*token*"：有符号/无符号不匹配
 
-比较有符号和无符号数字需要编译器将有符号值转换为无符号值。
+使用 *标记* 运算符比较 **`signed`** 和 **`unsigned`** 数字要求编译器将 **`signed`** 值转换为 **`unsigned`** 。
 
-如果在测试有符号和无符号类型时强制转换两种类型之一，则可能会修复此警告。
+## <a name="remarks"></a>备注
 
-下面的示例生成 C4018：
+解决此警告的一种方法是在比较和类型时转换这两种类型 **`signed`** 之一 **`unsigned`** 。
+
+## <a name="example"></a>示例
+
+此示例生成 C4018，并演示如何修复此问题：
 
 ```cpp
 // C4018.cpp
-// compile with: /W3
+// compile with: cl /EHsc /W4 C4018.cpp
 int main() {
-   unsigned int uc = 0;
-   int c = 0;
-   unsigned int c2 = 0;
+    unsigned int uc = 0;
+    int c = 0;
+    unsigned int c2 = c; // implicit conversion
 
-   if (uc < c) uc = 0;   // C4018
+    if (uc < c)           // C4018
+        uc = 0;
 
-   // OK
-   if (uc == c2) uc = 0;
+    if (uc < unsigned(c)) // OK
+        uc = 0;
+
+    if (uc < c2)          // Also OK
+       uc = 0;
 }
 ```
+
+## <a name="see-also"></a>另请参阅
+
+[编译器警告 (等级 4) C4388](c4388.md)\
+[编译器警告 (等级 4) C4389](compiler-warning-level-4-c4389.md)
